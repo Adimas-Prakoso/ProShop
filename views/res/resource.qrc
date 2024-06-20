@@ -1,0 +1,45 @@
+<RCC>
+  <qresource prefix="icon">
+    <file>icons/icons8-add-shopping-cart-384.png</file>
+    <file>icons/icons8-star-480.png</file>
+    <file>icons/icons8-star-filled-480.png</file>
+    <file>icons/icons8-discount-480.png</file>
+    <file>icons/icons8-colors-log-out-384.png</file>
+    <file>icons/icons8-colors-wallet-500.png</file>
+    <file>icons/icons8-wallet-500.png</file>
+    <file>icons/icons8-arrow-right-500.png</file>
+    <file>icons/icons8-colors-sort-right-500.png</file>
+    <file>icons/icons8-colors-box-500.png</file>
+    <file>icons/icons8-colors-discount-500.png</file>
+    <file>icons/icons8-colors-home-500.png</file>
+    <file>icons/icons8-colors-new-500.png</file>
+    <file>icons/icons8-colors-search-500.png</file>
+    <file>icons/icons8-colors-setting-500.png</file>
+    <file>icons/icons8-new-500.png</file>
+    <file>icons/icons8-search-500 (1).png</file>
+    <file>icons/icons8-shop-500 (1).png</file>
+    <file>icons/icons8-notification-500 (1).png</file>
+    <file>icons/icons8-setting-500.png</file>
+    <file>icons/icons8-log-out-384.png</file>
+    <file>icons/icons8-discount-500.png</file>
+    <file>icons/icons8-user-profile-512.png</file>
+    <file>icons/icons8-maximize-500.png</file>
+    <file>icons/icons8-restore-down-144.png</file>
+    <file>icons/icons8-back-500.png</file>
+    <file>icons/icons8-minimize-500.png</file>
+    <file>icons/icons8-hide-500.png</file>
+    <file>icons/icons8-show-500.png</file>
+    <file>icons/icons8-box-500.png</file>
+    <file>icons/icons8-close-500.png</file>
+    <file>icons/icons8-history-500.png</file>
+    <file>icons/icons8-home-500.png</file>
+    <file>icons/icons8-menu-500.png</file>
+    <file>icons/icons8-notification-500.png</file>
+    <file>icons/icons8-search-500.png</file>
+    <file>icons/icons8-shop-500.png</file>
+    <file>icons/icons8-shopping-bag-500.png</file>
+  </qresource>
+  <qresource prefix="image">
+    <file>images/logo.jpeg</file>
+  </qresource>
+</RCC>

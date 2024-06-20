@@ -1,0 +1,758 @@
+[
+    {
+        "id": 1,
+        "image_path": "./views/res/images/produc/1.jpg",
+        "name": "Kemeja Flanel Pria",
+        "stock": 90,
+        "description": "Kemeja flanel lengan panjang dengan bahan katun yang nyaman dipakai. Cocok untuk gaya kasual ataupun semi formal.",
+        "price": 150000,
+        "discount": 20,
+        "category": "Pakaian Pria",
+        "variation": [
+            "Biru ukuran XL",
+            "Merah ukuran M",
+            "Kuning ukuran XXL"
+        ],
+        "comments": []
+    },
+    {
+        "id": 2,
+        "image_path": "./views/res/images/produc/2.jpg",
+        "name": "Gaun Wanita",
+        "stock": 50,
+        "description": "Gaun cantik dengan bahan satin yang halus dan berkilau. Cocok untuk acara formal ataupun pesta.",
+        "price": 300000,
+        "discount": 15,
+        "category": "Pakaian Wanita",
+        "variation": [
+            "Merah ukuran S",
+            "Biru Muda ukuran M",
+            "Hitam ukuran L"
+        ],
+        "comments": []
+    },
+    {
+        "id": 3,
+        "image_path": "./views/res/images/produc/3.jpg",
+        "name": "Kaos Anak",
+        "stock": 120,
+        "description": "Kaos anak dengan desain lucu dan menarik. Terbuat dari bahan katun yang lembut dan aman untuk anak.",
+        "price": 100000,
+        "discount": 0,
+        "category": "Pakaian Anak",
+        "variation": [
+            "Putih ukuran 8",
+            "Biru ukuran 10",
+            "Kuning ukuran 12"
+        ],
+        "comments": []
+    },
+    {
+        "id": 4,
+        "image_path": "./views/res/images/produc/4.jpg",
+        "name": "Celana Jeans Wanita",
+        "stock": 80,
+        "description": "Celana jeans model skinny fit yang nyaman dipakai. Cocok untuk gaya kasual sehari-hari.",
+        "price": 250000,
+        "discount": 10,
+        "category": "Pakaian Wanita",
+        "variation": [
+            "Biru Muda ukuran 27",
+            "Hitam ukuran 28",
+            "Abu-abu ukuran 29"
+        ],
+        "comments": []
+    },
+    {
+        "id": 5,
+        "image_path": "./views/res/images/produc/5.jpg",
+        "name": "Jaket Bomber Pria",
+        "stock": 200,
+        "description": "Jaket bomber berbahan parasut yang tahan angin. Cocok untuk gaya sporty ataupun casual.",
+        "price": 400000,
+        "discount": 5,
+        "category": "Pakaian Pria",
+        "variation": [
+            "Hijau ukuran M",
+            "Hitam ukuran L",
+            "Biru Navy ukuran XL"
+        ],
+        "comments": []
+    },
+    {
+        "id": 6,
+        "image_path": "./views/res/images/produc/6.jpg",
+        "name": "Sepatu Sneakers Pria",
+        "stock": 150,
+        "description": "Sepatu sneakers dengan desain trendy dan nyaman dipakai. Cocok untuk gaya kasual ataupun semi formal.",
+        "price": 350000,
+        "discount": 0,
+        "category": "Sepatu Pria",
+        "variation": [
+            "Hitam ukuran 39",
+            "Putih ukuran 40",
+            "Abu-abu ukuran 41"
+        ],
+        "comments": []
+    },
+    {
+        "id": 7,
+        "image_path": "./views/res/images/produc/7.jpg",
+        "name": "Tas Wanita",
+        "stock": 70,
+        "description": "Tas wanita dengan desain elegan dan modern. Cocok untuk digunakan sehari-hari ataupun acara formal.",
+        "price": 200000,
+        "discount": 0,
+        "category": "Aksesoris Wanita",
+        "variation": [
+            "Kecil Coklat",
+            "Sedang Hitam",
+            "Besar Krem"
+        ],
+        "comments": []
+    },
+    {
+        "id": 8,
+        "image_path": "./views/res/images/produc/8.jpg",
+        "name": "Topi Pria",
+        "stock": 180,
+        "description": "Topi baseball dengan desain sporty dan trendy. Cocok untuk melindungi diri dari sinar matahari ataupun untuk gaya.",
+        "price": 75000,
+        "discount": 0,
+        "category": "Aksesoris Pria",
+        "variation": [
+            "Hitam",
+            "Biru Navy",
+            "Abu-abu"
+        ],
+        "comments": []
+    },
+    {
+        "id": 9,
+        "image_path": "./views/res/images/produc/9.jpg",
+        "name": "Jam Tangan Wanita",
+        "stock": 110,
+        "description": "Jam tangan dengan desain mewah dan elegan. Cocok untuk digunakan sehari-hari ataupun acara formal.",
+        "price": 500000,
+        "discount": 12,
+        "category": "Aksesoris Wanita",
+        "variation": [
+            "Emas Kulit",
+            "Perak Logam",
+            "Rose Gold Stainless Steel"
+        ],
+        "comments": []
+    },
+    {
+        "id": 10,
+        "image_path": "./views/res/images/produc/10.jpg",
+        "name": "Smartphone Android Terbaru",
+        "stock": 50,
+        "description": "Smartphone dengan layar Full HD+, RAM 8GB, kamera 64MP, dan baterai 5000mAh. Cocok untuk pengguna yang menginginkan performa terbaik.",
+        "price": 6000000,
+        "discount": 15,
+        "category": "Elektronik",
+        "variation": [
+            "Warna Hitam - RAM 8GB/Internal 128GB",
+            "Warna Biru - RAM 8GB/Internal 256GB"
+        ],
+        "comments": []
+    },
+    {
+        "id": 11,
+        "image_path": "./views/res/images/produc/11.jpg",
+        "name": "Laptop Gaming Tangguh",
+        "stock": 30,
+        "description": "Laptop gaming dengan prosesor Intel Core i7, RAM 16GB, NVIDIA GeForce RTX 3060, dan layar 144Hz. Cocok untuk gamer yang menginginkan pengalaman bermain game yang maksimal.",
+        "price": 15000000,
+        "discount": 8,
+        "category": "Elektronik",
+        "variation": [
+            "Warna Hitam - Prosesor Intel Core i7-12700H",
+            "Warna Putih - Prosesor AMD Ryzen 7 6800H"
+        ],
+        "comments": []
+    },
+    {
+        "id": 12,
+        "image_path": "./views/res/images/produc/12.jpg",
+        "name": "Smartwatch Multifungsi",
+        "stock": 70,
+        "description": "Smartwatch dengan fitur pemantau kesehatan, pelacakan aktivitas, dan notifikasi smartphone. Cocok untuk orang yang ingin hidup sehat dan aktif.",
+        "price": 2000000,
+        "discount": 0,
+        "category": "Elektronik",
+        "variation": [
+            "Warna Hitam - Ukuran 40mm",
+            "Warna Silver - Ukuran 44mm"
+        ],
+        "comments": []
+    },
+    {
+        "id": 13,
+        "image_path": "./views/res/images/produc/13.jpeg",
+        "name": "Smart TV 4K Ultra HD",
+        "stock": 20,
+        "description": "Smart TV dengan layar 4K Ultra HD, HDR10+, dan Dolby Vision. Cocok untuk menikmati film dan video dengan kualitas gambar yang menakjubkan.",
+        "price": 7000000,
+        "discount": 15,
+        "category": "Elektronik",
+        "variation": [
+            "Ukuran 50 Inch",
+            "Ukuran 65 Inch"
+        ],
+        "comments": []
+    },
+    {
+        "id": 14,
+        "image_path": "./views/res/images/produc/14.jpeg",
+        "name": "Kulkas 2 Pintu No Frost",
+        "stock": 40,
+        "description": "Kulkas 2 pintu dengan teknologi No Frost yang mencegah pembentukan es. Cocok untuk menyimpan makanan dengan lebih tahan lama.",
+        "price": 4000000,
+        "discount": 0,
+        "category": "Elektronik",
+        "variation": [
+            "Kapasitas 300 Liter",
+            "Kapasitas 400 Liter"
+        ],
+        "comments": []
+    },
+    {
+        "id": 15,
+        "image_path": "./views/res/images/produc/15.jpg",
+        "name": "Speaker Bluetooth Portable",
+        "stock": 80,
+        "description": "Speaker Bluetooth dengan suara yang jernih dan bass yang powerful. Cocok untuk mendengarkan musik di mana saja.",
+        "price": 750000,
+        "discount": 0,
+        "category": "Elektronik",
+        "variation": [
+            "Warna Hitam",
+            "Warna Biru",
+            "Warna Merah"
+        ],
+        "comments": []
+    },
+    {
+        "id": 16,
+        "image_path": "./views/res/images/produc/16.jpg",
+        "name": "Kamera Digital Mirrorless",
+        "stock": 40,
+        "description": "Kamera digital mirrorless dengan sensor APS-C, resolusi 24MP, dan autofokus yang cepat. Cocok untuk para fotografer pemula maupun profesional.",
+        "price": 8000000,
+        "discount": 0,
+        "category": "Elektronik",
+        "variation": [
+            "Lensa Kit 18-55mm",
+            "Lensa Telephoto 70-300mm"
+        ],
+        "comments": []
+    },
+    {
+        "id": 17,
+        "image_path": "./views/res/images/produc/17.jpg",
+        "name": "Drone Mini Lipat",
+        "stock": 60,
+        "description": "Drone mini lipat dengan kamera 4K, fitur GPS, dan waktu terbang hingga 20 menit. Cocok untuk pemula yang ingin belajar menerbangkan drone.",
+        "price": 3500000,
+        "discount": 14,
+        "category": "Elektronik",
+        "variation": [
+            "Warna Putih",
+            "Warna Hitam"
+        ],
+        "comments": []
+    },
+    {
+        "id": 18,
+        "image_path": "./views/res/images/produc/18.jpg",
+        "name": "Air Fryer Sehat",
+        "stock": 90,
+        "description": "Air fryer yang dapat menggoreng makanan tanpa minyak, sehingga lebih sehat dan rendah kalori.",
+        "price": 1500000,
+        "discount": 0,
+        "category": "Elektronik",
+        "variation": [
+            "Kapasitas 2 Liter",
+            "Kapasitas 4 Liter"
+        ],
+        "comments": []
+    },
+    {
+        "id": 19,
+        "image_path": "./views/res/images/produc/19.jpg",
+        "name": "Mesin Cuci Top Loading",
+        "stock": 50,
+        "description": "Mesin cuci top loading dengan kapasitas 8kg, teknologi Eco Tub, dan fitur ActiveWash System.",
+        "price": 3000000,
+        "discount": 0,
+        "category": "Elektronik",
+        "variation": [
+            "Warna Putih",
+            "Warna Biru"
+        ],
+        "comments": []
+    },
+    {
+        "id": 20,
+        "image_path": "./views/res/images/produc/20.jpeg",
+        "name": "Tablet Android Terbaru",
+        "stock": 60,
+        "description": "Tablet dengan layar Full HD+, RAM 6GB, kamera 12MP, dan baterai 7000mAh. Cocok untuk pengguna yang menginginkan tablet yang powerful dan tahan lama.",
+        "price": 4000000,
+        "discount": 10,
+        "category": "Elektronik",
+        "variation": [
+            "Warna Abu-abu - RAM 6GB/Internal 128GB",
+            "Warna Emas - RAM 8GB/Internal 256GB"
+        ],
+        "comments": []
+    },
+    {
+        "id": 21,
+        "image_path": "./views/res/images/produc/21.jpg",
+        "name": "Set Peralatan Makan Keramik",
+        "stock": 50,
+        "description": "Set peralatan makan keramik untuk 4 orang dengan desain yang elegan dan menarik. Cocok untuk digunakan sehari-hari ataupun acara spesial.",
+        "price": 300000,
+        "discount": 0,
+        "category": "Peralatan Rumah",
+        "variation": [
+            "Warna Putih - 4 piring, 4 sendok, 4 garpu, 4 pisau"
+        ],
+        "comments": []
+    },
+    {
+        "id": 22,
+        "image_path": "./views/res/images/produc/22.jpeg",
+        "name": "Wajan Anti Lengket Teflon",
+        "stock": 40,
+        "description": "Wajan anti lengket teflon dengan diameter 24cm. Cocok untuk memasak berbagai macam masakan tanpa khawatir lengket.",
+        "price": 150000,
+        "discount": 0,
+        "category": "Peralatan Rumah",
+        "variation": [
+            "Diameter 24cm"
+        ],
+        "comments": []
+    },
+    {
+        "id": 23,
+        "image_path": "./views/res/images/produc/23.jpeg",
+        "name": "Set Sprei Katun Lembut",
+        "stock": 70,
+        "description": "Set sprei katun dengan desain yang nyaman dan adem. Cocok untuk tidur yang berkualitas.",
+        "price": 250000,
+        "discount": 0,
+        "category": "Peralatan Rumah",
+        "variation": [
+            "Ukuran Queen (180x200cm)"
+        ],
+        "comments": []
+    },
+    {
+        "id": 24,
+        "image_path": "./views/res/images/produc/24.jpeg",
+        "name": "Gelas Minum Kaca",
+        "stock": 50,
+        "description": "Gelas minum kaca dengan desain yang simple dan elegan. Cocok untuk digunakan sehari-hari ataupun acara spesial.",
+        "price": 150000,
+        "discount": 0,
+        "category": "Peralatan Rumah",
+        "variation": [
+            "Set 6 gelas - 300ml"
+        ],
+        "comments": []
+    },
+    {
+        "id": 25,
+        "image_path": "./views/res/images/produc/25.jpg",
+        "name": "Tempat Sampah Plastik",
+        "stock": 40,
+        "description": "Tempat sampah plastik dengan desain modern dan minimalis. Cocok untuk menjaga kebersihan rumah.",
+        "price": 100000,
+        "discount": 0,
+        "category": "Peralatan Rumah",
+        "variation": [
+            "Kapasitas 10 liter"
+        ],
+        "comments": []
+    },
+    {
+        "id": 26,
+        "image_path": "./views/res/images/produc/26.jpg",
+        "name": "Kursi Plastik Lipat",
+        "stock": 70,
+        "description": "Kursi plastik lipat dengan desain ergonomis dan tahan lama. Cocok untuk digunakan di dalam maupun luar ruangan.",
+        "price": 100000,
+        "discount": 0,
+        "category": "Peralatan Rumah",
+        "variation": [
+            "Warna Biru",
+            "Warna Merah",
+            "Warna Hijau"
+        ],
+        "comments": []
+    },
+    {
+        "id": 27,
+        "image_path": "./views/res/images/produc/27.jpeg",
+        "name": "Tempat Tidur Kayu Minimalis",
+        "stock": 30,
+        "description": "Tempat tidur kayu minimalis dengan desain modern dan kokoh. Cocok untuk menciptakan kamar tidur yang nyaman dan stylish.",
+        "price": 3500000,
+        "discount": 6,
+        "category": "Peralatan Rumah",
+        "variation": [
+            "Ukuran Single - Warna Putih",
+            "Ukuran Queen - Warna Coklat"
+        ],
+        "comments": []
+    },
+    {
+        "id": 28,
+        "image_path": "./views/res/images/produc/28.jpg",
+        "name": "Sofa Fabric Nyaman",
+        "stock": 20,
+        "description": "Sofa fabric dengan desain modern dan nyaman. Cocok untuk bersantai bersama keluarga ataupun teman.",
+        "price": 3500000,
+        "discount": 11,
+        "category": "Peralatan Rumah",
+        "variation": [
+            "Warna Abu-abu - 2 Dudukan",
+            "Warna Biru - 3 Dudukan"
+        ],
+        "comments": []
+    },
+    {
+        "id": 29,
+        "image_path": "./views/res/images/produc/29.jpg",
+        "name": "Lemari Pakaian Minimalis",
+        "stock": 40,
+        "description": "Lemari pakaian minimalis dengan desain modern dan fungsional. Cocok untuk menyimpan pakaian dan barang-barang lainnya dengan rapi.",
+        "price": 1500000,
+        "discount": 0,
+        "category": "Peralatan Rumah",
+        "variation": [
+            "Ukuran 2 Pintu - Warna Putih",
+            "Ukuran 3 Pintu - Warna Coklat"
+        ],
+        "comments": []
+    },
+    {
+        "id": 30,
+        "image_path": "./views/res/images/produc/30.jpg",
+        "name": "Kursi Makan Rotan Nyaman",
+        "stock": 60,
+        "description": "Kursi makan rotan dengan desain tradisional dan nyaman. Cocok untuk menciptakan suasana makan yang hangat dan santai.",
+        "price": 300000,
+        "discount": 0,
+        "category": "Peralatan Rumah",
+        "variation": [
+            "Warna Coklat",
+            "Warna Hitam"
+        ],
+        "comments": []
+    },
+    {
+        "id": 31,
+        "image_path": "./views/res/images/produc/31.jpeg",
+        "name": "Vitamin C 1000mg",
+        "stock": 100,
+        "description": "Suplemen Vitamin C 1000mg untuk meningkatkan daya tahan tubuh dan menjaga kesehatan kulit.",
+        "price": 150000,
+        "discount": 0,
+        "category": "Kesehatan",
+        "variation": [
+            "Botol 60 Kapsul",
+            "Botol 100 Kapsul"
+        ],
+        "comments": []
+    },
+    {
+        "id": 32,
+        "image_path": "./views/res/images/produc/32.jpg",
+        "name": "Minuman Probiotik untuk Pencernaan Sehat",
+        "stock": 80,
+        "description": "Minuman probiotik yang mengandung bakteri baik untuk membantu melancarkan pencernaan dan meningkatkan kesehatan usus.",
+        "price": 250000,
+        "discount": 0,
+        "category": "Kesehatan",
+        "variation": [
+            "Botol 250ml",
+            "Botol 500ml"
+        ],
+        "comments": []
+    },
+    {
+        "id": 33,
+        "image_path": "./views/res/images/produc/33.jpg",
+        "name": "Masker Wajah Alami untuk Kulit Cerah",
+        "stock": 60,
+        "description": "Masker wajah alami terbuat dari bahan-bahan alami seperti madu, yogurt, dan lemon untuk mencerahkan dan menghaluskan kulit.",
+        "price": 50000,
+        "discount": 0,
+        "category": "Kesehatan",
+        "variation": [
+            "Masker Bubuk",
+            "Masker Siap Pakai"
+        ],
+        "comments": []
+    },
+    {
+        "id": 34,
+        "image_path": "./views/res/images/produc/34.png",
+        "name": "Minyak Aromaterapi Lavender untuk Relaksasi",
+        "stock": 70,
+        "description": "Minyak aromaterapi lavender untuk membantu menenangkan pikiran, meredakan stres, dan meningkatkan kualitas tidur.",
+        "price": 100000,
+        "discount": 0,
+        "category": "Kesehatan",
+        "variation": [
+            "Botol 10ml",
+            "Botol 20ml"
+        ],
+        "comments": []
+    },
+    {
+        "id": 35,
+        "image_path": "./views/res/images/produc/35.jpg",
+        "name": "Alat Pijat Elektrik untuk Meredakan Nyeri Otot",
+        "stock": 50,
+        "description": "Alat pijat elektrik dengan berbagai mode pijat untuk membantu meredakan nyeri otot, meningkatkan sirkulasi darah, dan melancarkan metabolisme.",
+        "price": 500000,
+        "discount": 0,
+        "category": "Kesehatan",
+        "variation": [
+            "Tipe Portable",
+            "Tipe Duduk"
+        ],
+        "comments": []
+    },
+    {
+        "id": 36,
+        "image_path": "./views/res/images/produc/36.jpg",
+        "name": "Kapsul Omega-3 untuk Kesehatan Jantung",
+        "stock": 90,
+        "description": "Suplemen kapsul Omega-3 yang mengandung asam lemak omega-3 untuk menjaga kesehatan jantung, otak, dan mata.",
+        "price": 300000,
+        "discount": 0,
+        "category": "Kesehatan",
+        "variation": [
+            "Botol 60 Kapsul",
+            "Botol 120 Kapsul"
+        ],
+        "comments": []
+    },
+    {
+        "id": 37,
+        "image_path": "./views/res/images/produc/37.jpeg",
+        "name": "Alat Ukur Gula Darah untuk Penderita Diabetes",
+        "stock": 70,
+        "description": "Alat ukur gula darah untuk membantu penderita diabetes memantau kadar gula darah mereka.",
+        "price": 500000,
+        "discount": 0,
+        "category": "Kesehatan",
+        "variation": [
+            "Tipe Manual",
+            "Tipe Digital"
+        ],
+        "comments": []
+    },
+    {
+        "id": 38,
+        "image_path": "./views/res/images/produc/38.jpg",
+        "name": "Krim Anti-aging untuk Melawan Tanda Penuaan",
+        "stock": 60,
+        "description": "Krim anti-aging dengan kandungan retinol dan vitamin C untuk membantu melawan tanda-tanda penuaan seperti keriput dan garis halus.",
+        "price": 400000,
+        "discount": 0,
+        "category": "Kesehatan",
+        "variation": [
+            "Tipe Krim Siang",
+            "Tipe Krim Malam"
+        ],
+        "comments": []
+    },
+    {
+        "id": 39,
+        "image_path": "./views/res/images/produc/39.jpg",
+        "name": "Sabun Mandi Antibakteri untuk Melindungi Kulit dari Bakteri",
+        "stock": 80,
+        "description": "Sabun mandi antibakteri dengan kandungan triclosan untuk membantu melindungi kulit dari bakteri dan kuman.",
+        "price": 75000,
+        "discount": 0,
+        "category": "Kesehatan",
+        "variation": [
+            "Tipe Cair",
+            "Tipe Batang"
+        ],
+        "comments": []
+    },
+    {
+        "id": 40,
+        "image_path": "./views/res/images/produc/40.jpg",
+        "name": "Sikat Gigi Elektrik untuk Membersihkan Gigi Lebih Maksimal",
+        "stock": 50,
+        "description": "Sikat gigi elektrik dengan teknologi sonic untuk membantu membersihkan gigi lebih maksimal dan mencegah plak.",
+        "price": 600000,
+        "discount": 0,
+        "category": "Kesehatan",
+        "variation": [
+            "Tipe Standard",
+            "Tipe Premium"
+        ],
+        "comments": []
+    },
+    {
+        "id": 41,
+        "image_path": "./views/res/images/produc/41.jpg",
+        "name": "Ciki Rasa Pedas",
+        "stock": 100,
+        "description": "Camilan ringan dengan rasa pedas yang gurih dan bikin ketagihan. Cocok untuk dinikmati kapan saja dan di mana saja.",
+        "price": 10000,
+        "discount": 0,
+        "category": "Makanan",
+        "variation": [
+            "Kemasan 50g",
+            "Kemasan 100g"
+        ],
+        "comments": []
+    },
+    {
+        "id": 42,
+        "image_path": "./views/res/images/produc/42.jpg",
+        "name": "Mie Instan Rasa Ayam Bawang",
+        "stock": 80,
+        "description": "Mie instan dengan rasa ayam bawang yang klasik dan lezat. Mudah dan praktis untuk dimasak.",
+        "price": 5000,
+        "discount": 0,
+        "category": "Makanan",
+        "variation": [
+            "Kemasan Cup",
+            "Kemasan Bungkus"
+        ],
+        "comments": []
+    },
+    {
+        "id": 43,
+        "image_path": "./views/res/images/produc/43.jpg",
+        "name": "Bubur Instan Rasa Jagung",
+        "stock": 70,
+        "description": "Bubur instan dengan rasa jagung yang manis dan gurih. Cocok untuk sarapan atau camilan sehat.",
+        "price": 7500,
+        "discount": 0,
+        "category": "Makanan",
+        "variation": [
+            "Kemasan Sachet",
+            "Kemasan Kotak"
+        ],
+        "comments": []
+    },
+    {
+        "id": 44,
+        "image_path": "./views/res/images/produc/44.jpg",
+        "name": "Susu Bubuk Rasa Cokelat",
+        "stock": 60,
+        "description": "Susu bubuk dengan rasa cokelat yang nikmat dan kaya nutrisi. Cocok untuk anak-anak dan orang dewasa.",
+        "price": 15000,
+        "discount": 0,
+        "category": "Makanan",
+        "variation": [
+            "Kemasan Kaleng Kecil",
+            "Kemasan Kaleng Besar"
+        ],
+        "comments": []
+    },
+    {
+        "id": 45,
+        "image_path": "./views/res/images/produc/45.jpeg",
+        "name": "Sereal Sarapan Rasa Buah",
+        "stock": 50,
+        "description": "Sereal sarapan dengan rasa buah yang segar dan kaya serat. Cocok untuk sarapan sehat dan praktis.",
+        "price": 20000,
+        "discount": 0,
+        "category": "Makanan",
+        "variation": [
+            "Kemasan Kotak Kecil",
+            "Kemasan Kotak Besar"
+        ],
+        "comments": []
+    },
+    {
+        "id": 46,
+        "image_path": "./views/res/images/produc/46.png",
+        "name": "Keripik Kentang Rasa Barbeque",
+        "stock": 90,
+        "description": "Keripik kentang dengan rasa barbeque yang gurih dan smoky. Cocok untuk camilan santai atau dinikmati bersama teman-teman.",
+        "price": 12000,
+        "discount": 0,
+        "category": "Makanan",
+        "variation": [
+            "Kemasan 50g",
+            "Kemasan 100g"
+        ],
+        "comments": []
+    },
+    {
+        "id": 47,
+        "image_path": "./views/res/images/produc/47.jpg",
+        "name": "Makaroni & Keju Instan",
+        "stock": 80,
+        "description": "Makaroni & Keju instan dengan rasa creamy dan cheesy yang lezat. Mudah dan praktis untuk dimasak.",
+        "price": 8000,
+        "discount": 0,
+        "category": "Makanan",
+        "variation": [
+            "Kemasan Cup",
+            "Kemasan Kotak"
+        ],
+        "comments": []
+    },
+    {
+        "id": 48,
+        "image_path": "./views/res/images/produc/48.jpeg",
+        "name": "Sup Instan Rasa Sayuran",
+        "stock": 70,
+        "description": "Sup instan dengan rasa sayur yang menyegarkan dan kaya nutrisi. Cocok untuk menghangatkan tubuh dan mengisi perut.",
+        "price": 10000,
+        "discount": 0,
+        "category": "Makanan",
+        "variation": [
+            "Kemasan Sachet",
+            "Kemasan Kotak"
+        ],
+        "comments": []
+    },
+    {
+        "id": 49,
+        "image_path": "./views/res/images/produc/49.jpeg",
+        "name": "Minuman Bubuk Rasa Taro",
+        "stock": 100,
+        "description": "Minuman bubuk dengan rasa taro yang nikmat dan praktis. Cocok untuk dinikmati kapan saja dan di mana saja.",
+        "price": 15000,
+        "discount": 0,
+        "category": "Makanan",
+        "variation": [
+            "Kemasan Sachet Kecil",
+            "Kemasan Sachet Besar"
+        ],
+        "comments": []
+    },
+    {
+        "id": 50,
+        "image_path": "./views/res/images/produc/50.jpeg",
+        "name": "Bubur Instan Rasa Kacang Hijau",
+        "stock": 100,
+        "description": "Bubur instan dengan rasa kacang hijau yang manis dan gurih. Cocok untuk sarapan sehat atau camilan sore.",
+        "price": 18000,
+        "discount": 0,
+        "category": "Makanan",
+        "variation": [
+            "Kemasan Sachet",
+            "Kemasan Kotak"
+        ],
+        "comments": []
+    }
+]

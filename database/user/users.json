@@ -1,0 +1,49 @@
+[
+    {
+        "user_id": 1,
+        "hash_id": "cYSOsHYrabTt2NqRXWscjouBdeOR5w1vwdebvwKsxAjh2V4zaMTeIkueE8GVUVB7",
+        "email": "adimas.prakoso090704@outlook.com",
+        "password": "{[a=p$6/MVw:8Ap",
+        "username": "adimas",
+        "created_at": "2024-06-12 16:39:57",
+        "money": 0,
+        "profile": {
+            "name": "Adimas Prakoso",
+            "profile_picture": "./views/res/images/user.jpg",
+            "bio": "Hello there \ud83d\udc4b",
+            "address": "GG. Pejuang 6 No. 60A",
+            "phone": "",
+            "gender": "Pria",
+            "birthdate": "",
+            "payment": {
+                "credit_debit": [],
+                "bank_account": [],
+                "ovo": {
+                    "phone_number": "",
+                    "username": ""
+                },
+                "gopay": {
+                    "phone_number": "",
+                    "username": ""
+                },
+                "shopee": {
+                    "phone_number": "",
+                    "username": ""
+                },
+                "dana": {
+                    "phone_number": "",
+                    "username": ""
+                }
+            }
+        },
+        "settings": {
+            "theme": "light",
+            "language": "id",
+            "notifications": false,
+            "currency": "IDR"
+        },
+        "history": [],
+        "charts": [],
+        "order": []
+    }
+]
