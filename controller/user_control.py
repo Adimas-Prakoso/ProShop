@@ -43,6 +43,7 @@ from controller.app_controls import (
     get_8_raandom_discount_items,
     get_all_item_in_random_order,
     add_to_cart,
+    add_to_order,
     deduct_money
 )
 
@@ -1430,6 +1431,12 @@ class BuyItem(QMainWindow):
         self.setWindowTitle("Buy Item")  # Set the window title
         self.setWindowIcon(QIcon(os.path.abspath("./views/res/images/logo.jpeg")))
         self.show()
+        gif_file = "./views/res/animated/ok.gif"
+        gif_file_path = os.path.abspath(gif_file)
+        movie = QMovie(gif_file_path)
+        movie.setScaledSize(self.ui.sucess_anim.size())
+        self.ui.sucess_anim.setMovie(movie)
+        movie.start()
         self.shipping = random.randint(7000, 10000)
         self.admin = random.randint(2000, 5000)
         self.item = item
@@ -1464,8 +1471,12 @@ class BuyItem(QMainWindow):
     def add_chart_item(self, item_id):
         # Function to add the item to the chart
         response = add_to_cart(item_id)
-        QMessageBox.information(self, "Add to Chart", response["message"])
-        console.log("Item added to chart successfully!")
+        if response["status"] == True:
+            QMessageBox.information(self, "Add to Chart", response["message"])
+            console.log("Item added to the chart successfully!")
+        else:
+            QMessageBox.warning(self, "Add to Chart", response["message"])
+            console.log("Failed to add item to the chart!")
 
     def payment(self, item):
         if self.ui.purchase_amount.value() != 0:
@@ -1501,6 +1512,7 @@ class BuyItem(QMainWindow):
         if self.ui.buy_payment.currentText() == "COD":
             QMessageBox.information(self, "Payment", "Your order has been placed successfully!")
             console.log("Order placed successfully!")
+            add_to_order(product_id=item["id"], price=discount_price(price=item['price'], discount=item['discount']) * self.ui.purchase_amount.value() + self.shipping + self.admin, quantity=self.ui.purchase_amount.value())
             self.close()
         else:
             with open("./.logger", "r") as logger_file:
@@ -1513,6 +1525,7 @@ class BuyItem(QMainWindow):
             else:
                 deduct_money(user_id=user_data["user_id"], amount=discount_price(price=item['price'], discount=item['discount']) * self.ui.purchase_amount.value() + self.shipping + self.admin)
                 self.ui.stackedWidget.setCurrentWidget(self.ui.sucess)
+                add_to_order(product_id=item["id"], price=discount_price(price=item['price'], discount=item['discount']) * self.ui.purchase_amount.value() + self.shipping + self.admin, quantity=self.ui.purchase_amount.value())
                 QMessageBox.information(self, "Payment", "Order placed successfully!")
             console.log("Order placed successfully!")
             self.close()
