@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'item_infomfRhkW.ui'
+## Form generated from reading UI file 'item_infoCiOCpI.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.0
 ##
@@ -11,8 +11,7 @@
 from PySide6.QtCore import (QCoreApplication, QMetaObject, QRect,
     QSize, Qt)
 from PySide6.QtGui import (QCursor,
-    QFont, QIcon,
-    QPixmap)
+    QFont, QIcon)
 from PySide6.QtWidgets import (QComboBox, QFrame, QGridLayout,
     QHBoxLayout, QLabel, QListWidget, QPushButton, QRadioButton, QScrollArea,
     QSizePolicy, QSpacerItem, QSpinBox, QStackedWidget,
@@ -71,58 +70,9 @@ class BuyWindow(object):
         self.gridLayout_6.setObjectName(u"gridLayout_6")
         self.gridLayout_6.setVerticalSpacing(0)
         self.gridLayout_6.setContentsMargins(0, 0, 0, 0)
-        self.star4 = QLabel(self.frame_4)
-        self.star4.setObjectName(u"star4")
-        self.star4.setMinimumSize(QSize(30, 30))
-        self.star4.setMaximumSize(QSize(30, 30))
-        self.star4.setPixmap(QPixmap(u":/icon/icons/icons8-star-480.png"))
-        self.star4.setScaledContents(True)
+        self.horizontalSpacer_5 = QSpacerItem(125, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
-        self.gridLayout_6.addWidget(self.star4, 0, 4, 1, 1)
-
-        self.star2 = QLabel(self.frame_4)
-        self.star2.setObjectName(u"star2")
-        self.star2.setMinimumSize(QSize(30, 30))
-        self.star2.setMaximumSize(QSize(30, 30))
-        self.star2.setPixmap(QPixmap(u":/icon/icons/icons8-star-480.png"))
-        self.star2.setScaledContents(True)
-
-        self.gridLayout_6.addWidget(self.star2, 0, 2, 1, 1)
-
-        self.total_star = QLabel(self.frame_4)
-        self.total_star.setObjectName(u"total_star")
-        self.total_star.setMinimumSize(QSize(30, 30))
-        self.total_star.setMaximumSize(QSize(30, 30))
-        font = QFont()
-        font.setPointSize(10)
-        font.setBold(True)
-        self.total_star.setFont(font)
-        self.total_star.setStyleSheet(u"color: rgb(231, 231, 0);")
-        self.total_star.setFrameShape(QFrame.Shape.NoFrame)
-        self.total_star.setAlignment(Qt.AlignmentFlag.AlignCenter)
-
-        self.gridLayout_6.addWidget(self.total_star, 0, 0, 1, 1)
-
-        self.star5 = QLabel(self.frame_4)
-        self.star5.setObjectName(u"star5")
-        self.star5.setMinimumSize(QSize(30, 30))
-        self.star5.setMaximumSize(QSize(30, 30))
-        self.star5.setPixmap(QPixmap(u":/icon/icons/icons8-star-480.png"))
-        self.star5.setScaledContents(True)
-
-        self.gridLayout_6.addWidget(self.star5, 0, 5, 1, 1)
-
-        self.star1 = QLabel(self.frame_4)
-        self.star1.setObjectName(u"star1")
-        self.star1.setMinimumSize(QSize(30, 30))
-        self.star1.setMaximumSize(QSize(30, 30))
-        font1 = QFont()
-        font1.setPointSize(10)
-        self.star1.setFont(font1)
-        self.star1.setPixmap(QPixmap(u":/icon/icons/icons8-star-480.png"))
-        self.star1.setScaledContents(True)
-
-        self.gridLayout_6.addWidget(self.star1, 0, 1, 1, 1)
+        self.gridLayout_6.addItem(self.horizontalSpacer_5, 0, 0, 1, 1)
 
         self.add_chart = QPushButton(self.frame_4)
         self.add_chart.setObjectName(u"add_chart")
@@ -131,24 +81,11 @@ class BuyWindow(object):
         self.add_chart.setCursor(QCursor(Qt.PointingHandCursor))
         self.add_chart.setStyleSheet(u"border-radius: 12px;")
         icon = QIcon()
-        icon.addFile(u":/icon/icons/icons8-add-shopping-cart-384.png", QSize(), QIcon.Normal, QIcon.Off)
+        icon.addFile(u"./views/res/icons/icons8-add-shopping-cart-384.png", QSize(), QIcon.Normal, QIcon.Off)
         self.add_chart.setIcon(icon)
         self.add_chart.setIconSize(QSize(22, 22))
 
-        self.gridLayout_6.addWidget(self.add_chart, 0, 7, 1, 1)
-
-        self.star3 = QLabel(self.frame_4)
-        self.star3.setObjectName(u"star3")
-        self.star3.setMinimumSize(QSize(30, 30))
-        self.star3.setMaximumSize(QSize(30, 30))
-        self.star3.setPixmap(QPixmap(u":/icon/icons/icons8-star-480.png"))
-        self.star3.setScaledContents(True)
-
-        self.gridLayout_6.addWidget(self.star3, 0, 3, 1, 1)
-
-        self.horizontalSpacer_5 = QSpacerItem(125, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
-
-        self.gridLayout_6.addItem(self.horizontalSpacer_5, 0, 6, 1, 1)
+        self.gridLayout_6.addWidget(self.add_chart, 0, 1, 1, 1)
 
 
         self.gridLayout_4.addWidget(self.frame_4, 1, 0, 1, 3)
@@ -157,11 +94,11 @@ class BuyWindow(object):
         self.names.setObjectName(u"names")
         self.names.setMinimumSize(QSize(0, 70))
         self.names.setMaximumSize(QSize(16777215, 70))
-        font2 = QFont()
-        font2.setFamilies([u"Segoe UI"])
-        font2.setPointSize(20)
-        font2.setBold(True)
-        self.names.setFont(font2)
+        font = QFont()
+        font.setFamilies([u"Segoe UI"])
+        font.setPointSize(20)
+        font.setBold(True)
+        self.names.setFont(font)
         self.names.setStyleSheet(u"color: rgb(0, 0, 0);")
         self.names.setScaledContents(True)
         self.names.setAlignment(Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignTop)
@@ -171,10 +108,10 @@ class BuyWindow(object):
 
         self.frame_2 = QFrame(self.scrollAreaWidgetContents)
         self.frame_2.setObjectName(u"frame_2")
-        font3 = QFont()
-        font3.setPointSize(9)
-        font3.setBold(False)
-        self.frame_2.setFont(font3)
+        font1 = QFont()
+        font1.setPointSize(9)
+        font1.setBold(False)
+        self.frame_2.setFont(font1)
         self.frame_2.setFrameShape(QFrame.Shape.NoFrame)
         self.frame_2.setFrameShadow(QFrame.Shadow.Raised)
         self.gridLayout_7 = QGridLayout(self.frame_2)
@@ -200,7 +137,10 @@ class BuyWindow(object):
 
         self.label_5 = QLabel(self.frame_2)
         self.label_5.setObjectName(u"label_5")
-        self.label_5.setFont(font)
+        font2 = QFont()
+        font2.setPointSize(10)
+        font2.setBold(True)
+        self.label_5.setFont(font2)
 
         self.gridLayout_7.addWidget(self.label_5, 1, 0, 1, 1)
 
@@ -211,9 +151,9 @@ class BuyWindow(object):
         self.category.setObjectName(u"category")
         self.category.setMinimumSize(QSize(80, 25))
         self.category.setMaximumSize(QSize(16777215, 16777215))
-        font4 = QFont()
-        font4.setFamilies([u"Segoe UI Black"])
-        self.category.setFont(font4)
+        font3 = QFont()
+        font3.setFamilies([u"Segoe UI Black"])
+        self.category.setFont(font3)
         self.category.setCursor(QCursor(Qt.PointingHandCursor))
         self.category.setStyleSheet(u"border-radius: 12px;\n"
 "border-color: rgb(0, 0, 0);\n"
@@ -228,11 +168,11 @@ class BuyWindow(object):
         self.description.setObjectName(u"description")
         self.description.setMinimumSize(QSize(0, 40))
         self.description.setMaximumSize(QSize(16777215, 40))
-        font5 = QFont()
-        font5.setFamilies([u"Segoe UI Light"])
-        font5.setPointSize(10)
-        font5.setItalic(True)
-        self.description.setFont(font5)
+        font4 = QFont()
+        font4.setFamilies([u"Segoe UI Light"])
+        font4.setPointSize(10)
+        font4.setItalic(True)
+        self.description.setFont(font4)
         self.description.setStyleSheet(u"color: rgb(0, 0, 0);")
         self.description.setAlignment(Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignTop)
         self.description.setWordWrap(True)
@@ -275,7 +215,7 @@ class BuyWindow(object):
 
         self.label_3 = QLabel(self.frame)
         self.label_3.setObjectName(u"label_3")
-        self.label_3.setFont(font)
+        self.label_3.setFont(font2)
 
         self.gridLayout_3.addWidget(self.label_3, 0, 0, 1, 2)
 
@@ -301,12 +241,12 @@ class BuyWindow(object):
         self.gridLayout_5.setContentsMargins(0, 0, 0, 0)
         self.harga_diskon = QLabel(self.frame_3)
         self.harga_diskon.setObjectName(u"harga_diskon")
-        font6 = QFont()
-        font6.setFamilies([u"Segoe UI"])
-        font6.setPointSize(10)
-        font6.setBold(True)
-        font6.setStrikeOut(True)
-        self.harga_diskon.setFont(font6)
+        font5 = QFont()
+        font5.setFamilies([u"Segoe UI"])
+        font5.setPointSize(10)
+        font5.setBold(True)
+        font5.setStrikeOut(True)
+        self.harga_diskon.setFont(font5)
         self.harga_diskon.setStyleSheet(u"color: rgb(255, 0, 0);")
 
         self.gridLayout_5.addWidget(self.harga_diskon, 0, 0, 1, 1)
@@ -315,11 +255,11 @@ class BuyWindow(object):
         self.presentase_diskon.setObjectName(u"presentase_diskon")
         self.presentase_diskon.setMinimumSize(QSize(80, 25))
         self.presentase_diskon.setMaximumSize(QSize(80, 25))
-        font7 = QFont()
-        font7.setFamilies([u"Segoe UI"])
-        font7.setPointSize(12)
-        font7.setBold(True)
-        self.presentase_diskon.setFont(font7)
+        font6 = QFont()
+        font6.setFamilies([u"Segoe UI"])
+        font6.setPointSize(12)
+        font6.setBold(True)
+        self.presentase_diskon.setFont(font6)
         self.presentase_diskon.setStyleSheet(u"color: rgb(255, 255, 255);\n"
 "background-color: rgb(255, 0, 0);\n"
 "border-radius: 10px;")
@@ -329,11 +269,11 @@ class BuyWindow(object):
 
         self.harga_item = QLabel(self.frame_3)
         self.harga_item.setObjectName(u"harga_item")
-        font8 = QFont()
-        font8.setFamilies([u"Segoe UI"])
-        font8.setPointSize(15)
-        font8.setBold(True)
-        self.harga_item.setFont(font8)
+        font7 = QFont()
+        font7.setFamilies([u"Segoe UI"])
+        font7.setPointSize(15)
+        font7.setBold(True)
+        self.harga_item.setFont(font7)
         self.harga_item.setStyleSheet(u"color: rgb(0, 255, 255);")
 
         self.gridLayout_5.addWidget(self.harga_item, 0, 1, 1, 1)
@@ -356,7 +296,7 @@ class BuyWindow(object):
         self.gridLayout_18.setContentsMargins(0, 0, 0, 0)
         self.label_2 = QLabel(self.frame_14)
         self.label_2.setObjectName(u"label_2")
-        self.label_2.setFont(font)
+        self.label_2.setFont(font2)
 
         self.gridLayout_18.addWidget(self.label_2, 0, 0, 1, 1)
 
@@ -367,14 +307,14 @@ class BuyWindow(object):
         self.gridLayout_19 = QGridLayout(self.frame_15)
         self.gridLayout_19.setObjectName(u"gridLayout_19")
         self.gridLayout_19.setContentsMargins(4, 4, 4, 4)
-        self.spinBox = QSpinBox(self.frame_15)
-        self.spinBox.setObjectName(u"spinBox")
-        self.spinBox.setMinimumSize(QSize(0, 30))
-        font9 = QFont()
-        font9.setBold(True)
-        self.spinBox.setFont(font9)
+        self.purchase_amount = QSpinBox(self.frame_15)
+        self.purchase_amount.setObjectName(u"purchase_amount")
+        self.purchase_amount.setMinimumSize(QSize(0, 30))
+        font8 = QFont()
+        font8.setBold(True)
+        self.purchase_amount.setFont(font8)
 
-        self.gridLayout_19.addWidget(self.spinBox, 0, 0, 1, 1)
+        self.gridLayout_19.addWidget(self.purchase_amount, 0, 0, 1, 1)
 
 
         self.gridLayout_18.addWidget(self.frame_15, 1, 0, 1, 1)
@@ -390,7 +330,7 @@ class BuyWindow(object):
         self.pushButton.setObjectName(u"pushButton")
         self.pushButton.setMinimumSize(QSize(0, 30))
         self.pushButton.setMaximumSize(QSize(16777215, 30))
-        self.pushButton.setFont(font9)
+        self.pushButton.setFont(font8)
         self.pushButton.setCursor(QCursor(Qt.PointingHandCursor))
         self.pushButton.setStyleSheet(u"background-color: rgb(237, 41, 89);\n"
 "color: rgb(255, 255, 255);\n"
@@ -411,15 +351,15 @@ class BuyWindow(object):
         self.scrollArea_2.setWidgetResizable(True)
         self.scrollAreaWidgetContents_2 = QWidget()
         self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")
-        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 327, 512))
+        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 374, 512))
         self.gridLayout_10 = QGridLayout(self.scrollAreaWidgetContents_2)
         self.gridLayout_10.setObjectName(u"gridLayout_10")
         self.frame_7 = QFrame(self.scrollAreaWidgetContents_2)
         self.frame_7.setObjectName(u"frame_7")
         self.frame_7.setMaximumSize(QSize(16777215, 100))
-        font10 = QFont()
-        font10.setFamilies([u"Segoe UI"])
-        self.frame_7.setFont(font10)
+        font9 = QFont()
+        font9.setFamilies([u"Segoe UI"])
+        self.frame_7.setFont(font9)
         self.frame_7.setStyleSheet(u"background-color: rgb(239, 239, 239);")
         self.frame_7.setFrameShape(QFrame.Shape.NoFrame)
         self.frame_7.setFrameShadow(QFrame.Shadow.Raised)
@@ -428,7 +368,7 @@ class BuyWindow(object):
         self.label = QLabel(self.frame_7)
         self.label.setObjectName(u"label")
         self.label.setMaximumSize(QSize(16777215, 22))
-        self.label.setFont(font)
+        self.label.setFont(font2)
 
         self.gridLayout_12.addWidget(self.label, 0, 0, 1, 1)
 
@@ -444,10 +384,10 @@ class BuyWindow(object):
         self.gridLayout_13.setContentsMargins(0, 9, 0, 0)
         self.buy_address = QLabel(self.frame_8)
         self.buy_address.setObjectName(u"buy_address")
-        font11 = QFont()
-        font11.setFamilies([u"Segoe UI Light"])
-        font11.setItalic(True)
-        self.buy_address.setFont(font11)
+        font10 = QFont()
+        font10.setFamilies([u"Segoe UI Light"])
+        font10.setItalic(True)
+        self.buy_address.setFont(font10)
         self.buy_address.setAlignment(Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignTop)
 
         self.gridLayout_13.addWidget(self.buy_address, 0, 0, 1, 1)
@@ -468,7 +408,7 @@ class BuyWindow(object):
         self.gridLayout_15.setObjectName(u"gridLayout_15")
         self.label_6 = QLabel(self.frame_9)
         self.label_6.setObjectName(u"label_6")
-        self.label_6.setFont(font)
+        self.label_6.setFont(font2)
 
         self.gridLayout_15.addWidget(self.label_6, 0, 0, 1, 1)
 
@@ -497,28 +437,28 @@ class BuyWindow(object):
 
         self.label_4 = QLabel(self.frame_10)
         self.label_4.setObjectName(u"label_4")
-        font12 = QFont()
-        font12.setFamilies([u"Segoe UI Black"])
-        font12.setPointSize(12)
-        self.label_4.setFont(font12)
+        font11 = QFont()
+        font11.setFamilies([u"Segoe UI Black"])
+        font11.setPointSize(12)
+        self.label_4.setFont(font11)
 
         self.gridLayout_14.addWidget(self.label_4, 0, 2, 1, 1)
 
-        self.pushButton_4 = QPushButton(self.frame_10)
-        self.pushButton_4.setObjectName(u"pushButton_4")
-        self.pushButton_4.setMinimumSize(QSize(70, 30))
-        self.pushButton_4.setMaximumSize(QSize(70, 30))
-        self.pushButton_4.setFont(font9)
-        self.pushButton_4.setCursor(QCursor(Qt.PointingHandCursor))
-        self.pushButton_4.setStyleSheet(u"background-color: rgb(237, 41, 89);\n"
+        self.payment_back = QPushButton(self.frame_10)
+        self.payment_back.setObjectName(u"payment_back")
+        self.payment_back.setMinimumSize(QSize(70, 30))
+        self.payment_back.setMaximumSize(QSize(70, 30))
+        self.payment_back.setFont(font8)
+        self.payment_back.setCursor(QCursor(Qt.PointingHandCursor))
+        self.payment_back.setStyleSheet(u"background-color: rgb(237, 41, 89);\n"
 "color: rgb(0, 0, 0);\n"
 "border-radius: 10px;")
         icon1 = QIcon()
-        icon1.addFile(u":/icon/icons/icons8-back-500.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.pushButton_4.setIcon(icon1)
-        self.pushButton_4.setIconSize(QSize(20, 20))
+        icon1.addFile(u"./views/res/icons/icons8-back-500.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.payment_back.setIcon(icon1)
+        self.payment_back.setIconSize(QSize(20, 20))
 
-        self.gridLayout_14.addWidget(self.pushButton_4, 0, 0, 1, 1)
+        self.gridLayout_14.addWidget(self.payment_back, 0, 0, 1, 1)
 
         self.horizontalSpacer_7 = QSpacerItem(120, 20, QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Minimum)
 
@@ -553,9 +493,9 @@ class BuyWindow(object):
 
         self.buy_variation = QLabel(self.frame_6)
         self.buy_variation.setObjectName(u"buy_variation")
-        font13 = QFont()
-        font13.setPointSize(8)
-        self.buy_variation.setFont(font13)
+        font12 = QFont()
+        font12.setPointSize(8)
+        self.buy_variation.setFont(font12)
         self.buy_variation.setAlignment(Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignVCenter)
 
         self.gridLayout_11.addWidget(self.buy_variation, 2, 1, 1, 1)
@@ -564,11 +504,11 @@ class BuyWindow(object):
         self.buy_name.setObjectName(u"buy_name")
         self.buy_name.setMinimumSize(QSize(0, 40))
         self.buy_name.setMaximumSize(QSize(16777215, 40))
-        font14 = QFont()
-        font14.setFamilies([u"Segoe UI Black"])
-        font14.setPointSize(10)
-        font14.setBold(True)
-        self.buy_name.setFont(font14)
+        font13 = QFont()
+        font13.setFamilies([u"Segoe UI Black"])
+        font13.setPointSize(10)
+        font13.setBold(True)
+        self.buy_name.setFont(font13)
         self.buy_name.setAlignment(Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignTop)
         self.buy_name.setWordWrap(True)
 
@@ -588,16 +528,16 @@ class BuyWindow(object):
         self.gridLayout_16.setObjectName(u"gridLayout_16")
         self.label_7 = QLabel(self.frame_11)
         self.label_7.setObjectName(u"label_7")
-        self.label_7.setFont(font)
+        self.label_7.setFont(font2)
 
         self.gridLayout_16.addWidget(self.label_7, 0, 0, 1, 3)
 
         self.label_8 = QLabel(self.frame_11)
         self.label_8.setObjectName(u"label_8")
-        font15 = QFont()
-        font15.setFamilies([u"Segoe UI Variable Text"])
-        font15.setItalic(True)
-        self.label_8.setFont(font15)
+        font14 = QFont()
+        font14.setFamilies([u"Segoe UI Variable Text"])
+        font14.setItalic(True)
+        self.label_8.setFont(font14)
 
         self.gridLayout_16.addWidget(self.label_8, 1, 0, 1, 1)
 
@@ -612,7 +552,7 @@ class BuyWindow(object):
 
         self.label_10 = QLabel(self.frame_11)
         self.label_10.setObjectName(u"label_10")
-        self.label_10.setFont(font15)
+        self.label_10.setFont(font14)
 
         self.gridLayout_16.addWidget(self.label_10, 2, 0, 1, 1)
 
@@ -627,7 +567,7 @@ class BuyWindow(object):
 
         self.label_12 = QLabel(self.frame_11)
         self.label_12.setObjectName(u"label_12")
-        self.label_12.setFont(font15)
+        self.label_12.setFont(font14)
 
         self.gridLayout_16.addWidget(self.label_12, 3, 0, 1, 1)
 
@@ -651,7 +591,7 @@ class BuyWindow(object):
         self.pushButton_3.setObjectName(u"pushButton_3")
         self.pushButton_3.setMinimumSize(QSize(0, 30))
         self.pushButton_3.setMaximumSize(QSize(16777215, 30))
-        self.pushButton_3.setFont(font9)
+        self.pushButton_3.setFont(font8)
         self.pushButton_3.setCursor(QCursor(Qt.PointingHandCursor))
         self.pushButton_3.setStyleSheet(u"background-color: rgb(237, 41, 89);\n"
 "color: rgb(255, 255, 255);\n"
@@ -680,14 +620,14 @@ class BuyWindow(object):
         self.frame_12.setFrameShadow(QFrame.Shadow.Raised)
         self.gridLayout = QGridLayout(self.frame_12)
         self.gridLayout.setObjectName(u"gridLayout")
-        self.anim = QLabel(self.frame_12)
-        self.anim.setObjectName(u"anim")
-        self.anim.setMinimumSize(QSize(130, 130))
-        self.anim.setMaximumSize(QSize(130, 130))
-        self.anim.setScaledContents(True)
-        self.anim.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.sucess_anim = QLabel(self.frame_12)
+        self.sucess_anim.setObjectName(u"sucess_anim")
+        self.sucess_anim.setMinimumSize(QSize(130, 130))
+        self.sucess_anim.setMaximumSize(QSize(130, 130))
+        self.sucess_anim.setScaledContents(True)
+        self.sucess_anim.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
-        self.gridLayout.addWidget(self.anim, 0, 0, 1, 1)
+        self.gridLayout.addWidget(self.sucess_anim, 0, 0, 1, 1)
 
 
         self.verticalLayout.addWidget(self.frame_12)
@@ -704,11 +644,11 @@ class BuyWindow(object):
         self.gridLayout_17.setContentsMargins(0, 0, 0, 0)
         self.label_15 = QLabel(self.frame_13)
         self.label_15.setObjectName(u"label_15")
-        font16 = QFont()
-        font16.setFamilies([u"Segoe UI Black"])
-        font16.setPointSize(16)
-        font16.setBold(True)
-        self.label_15.setFont(font16)
+        font15 = QFont()
+        font15.setFamilies([u"Segoe UI Black"])
+        font15.setPointSize(16)
+        font15.setBold(True)
+        self.label_15.setFont(font15)
         self.label_15.setStyleSheet(u"color: rgb(85, 255, 0);")
         self.label_15.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
@@ -743,13 +683,7 @@ class BuyWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
-        self.star4.setText("")
-        self.star2.setText("")
-        self.total_star.setText(QCoreApplication.translate("MainWindow", u"4,5", None))
-        self.star5.setText("")
-        self.star1.setText("")
         self.add_chart.setText("")
-        self.star3.setText("")
         self.names.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
         self.label_5.setText(QCoreApplication.translate("MainWindow", u"Comments", None))
         self.category.setText(QCoreApplication.translate("MainWindow", u"CATEGORY", None))
@@ -767,7 +701,7 @@ class BuyWindow(object):
         self.buy_address.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
         self.label_6.setText(QCoreApplication.translate("MainWindow", u"Payment Method", None))
         self.label_4.setText(QCoreApplication.translate("MainWindow", u"PAYMENT", None))
-        self.pushButton_4.setText(QCoreApplication.translate("MainWindow", u"Back", None))
+        self.payment_back.setText(QCoreApplication.translate("MainWindow", u"Back", None))
         self.buy_amount.setText(QCoreApplication.translate("MainWindow", u"\u00d7 1", None))
         self.buy_variation.setText(QCoreApplication.translate("MainWindow", u"[ VARIATION ]", None))
         self.buy_name.setText("")
@@ -779,7 +713,7 @@ class BuyWindow(object):
         self.label_12.setText(QCoreApplication.translate("MainWindow", u"Total Cost", None))
         self.total_cost.setText(QCoreApplication.translate("MainWindow", u"Rp 0", None))
         self.pushButton_3.setText(QCoreApplication.translate("MainWindow", u"BUY", None))
-        self.anim.setText("")
+        self.sucess_anim.setText("")
         self.label_15.setText(QCoreApplication.translate("MainWindow", u"PURCHASE SUCCESSFUL !", None))
         self.label_16.setText(QCoreApplication.translate("MainWindow", u"YOU CAN CLOSE THIS WINDOW!", None))
     # retranslateUi

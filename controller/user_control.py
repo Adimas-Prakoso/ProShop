@@ -15,6 +15,7 @@ from views.user_settings import Ui_settings
 from views.buy_item import BuyWindow
 import time
 import threading
+import random
 
 from controller.app_controls import (
     register_user,
@@ -40,7 +41,9 @@ from controller.app_controls import (
     get_item_from_price_range,
     get_20_random_items,
     get_8_raandom_discount_items,
-    get_all_item_in_random_order
+    get_all_item_in_random_order,
+    add_to_cart,
+    deduct_money
 )
 
 console = Console()
@@ -363,7 +366,7 @@ class UserMainWindow(QMainWindow):
             "color: rgb(255, 255, 255);\n"
             "border-radius: 10px;")
             self.Buy_button.setText("BUY")
-            self.Buy_button.clicked.connect(lambda _, item=item: print(item["id"]))
+            self.Buy_button.clicked.connect(lambda _, item=item: BuyItem(item=item))
 
             self.horizontalLayout.addWidget(self.Buy_button)
             
@@ -906,6 +909,8 @@ class UserMainWindow(QMainWindow):
                 password = logger_data.get("password")
                 status = login_user(email=email, password=password)
                 self.handle_login_status(status["status"])
+                user_money = get_user_data(email=email, password=password)["money"]
+                self.ui.money.setText(f"Rp {format(user_money, ',')}")
             time.sleep(5)
     
     def handle_login_status(self, login_status):
@@ -1424,9 +1429,11 @@ class BuyItem(QMainWindow):
         self.ui.setupUi(self)
         self.setWindowTitle("Buy Item")  # Set the window title
         self.setWindowIcon(QIcon(os.path.abspath("./views/res/images/logo.jpeg")))
+        self.show()
+        self.shipping = random.randint(7000, 10000)
+        self.admin = random.randint(2000, 5000)
         self.item = item
         self.ui.names.setText(item["name"])
-        self.ui.buy_name.setText(item["name"])
         self.ui.harga_item.setText(f"Rp {format(discount_price(price=item['price'], discount=item['discount']), ',')}")
         if item["discount"] != 0:
             self.ui.presentase_diskon.setText(f"{item['discount']}% OFF")
@@ -1437,7 +1444,6 @@ class BuyItem(QMainWindow):
         self.ui.description.setText(item["description"])
         self.ui.category.setText(item["category"])
         self.ui.item_image.setStyleSheet(f"border-image: url({item['image_path']});")
-        self.ui.buy_img.setStyleSheet(f"border-image: url({item['image_path']});")
         if len(item["variation"]) == 2:
             self.ui.variaton1.setText(item["variation"][0])
             self.ui.variation2.setText(item["variation"][1])
@@ -1450,12 +1456,66 @@ class BuyItem(QMainWindow):
             self.ui.variaton1.setText(item["variation"][0])
             self.ui.variation2.setText(item["variation"][1])
             self.ui.variation3.setText(item["variation"][2])
-        self.ui.spinBox.valueChanged.connect(self.calculate_total)
-        self.ui.add_chart.clicked.connect(self.add_to_chart)
-        self.ui.pushButton.clicked.connect(self.buy_item)
-        self.show()
+        self.ui.add_chart.clicked.connect(lambda: self.add_chart_item(item["id"]))
+        self.ui.pushButton.clicked.connect(lambda: self.payment(item))
+        self.ui.payment_back.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.item_info))
+        self.ui.pushButton_3.clicked.connect(lambda: self.bayar(item))
 
+    def add_chart_item(self, item_id):
+        # Function to add the item to the chart
+        response = add_to_cart(item_id)
+        QMessageBox.information(self, "Add to Chart", response["message"])
+        console.log("Item added to chart successfully!")
 
+    def payment(self, item):
+        if self.ui.purchase_amount.value() != 0:
+            self.ui.buy_img.setStyleSheet(f"border-image: url({item['image_path']});")
+            self.ui.stackedWidget.setCurrentWidget(self.ui.metode_pembayaran)
+            self.ui.buy_name.setText(item["name"])
+            self.ui.buy_amount.setText(f"× {str(self.ui.purchase_amount.value())}")
+            self.ui.buy_variation.setText(self.get_selected_variation())
+            with open("./.logger", "r") as logger_file:
+                logger_data = json.load(logger_file)
+                email = logger_data.get("email")
+                password = logger_data.get("password")
+            user_data = get_user_data(email=email, password=password)
+            self.ui.buy_address.setText(user_data["profile"]["address"])
+            self.ui.buy_payment.addItems(["COD", "ProShop Wallet"])
+            self.ui.shipping_cost.setText(f"Rp {format(self.shipping, ',')}")
+            self.ui.admin_fees.setText(f"Rp {format(self.admin, ',')}")
+            self.ui.total_cost.setText(f"Rp {format(discount_price(price=item['price'], discount=item['discount']) * self.ui.purchase_amount.value() + self.shipping + self.admin, ',')}")
+        else:
+            QMessageBox.warning(self, "Purchase Amount", "Please enter the purchase amount!")
+
+    def get_selected_variation(self):
+                if self.ui.variaton1.isChecked():
+                    return self.ui.variaton1.text()
+                elif self.ui.variation2.isChecked():
+                    return self.ui.variation2.text()
+                elif self.ui.variation3.isChecked():
+                    return self.ui.variation3.text()
+                else:
+                    return ""
+    
+    def bayar(self, item):
+        if self.ui.buy_payment.currentText() == "COD":
+            QMessageBox.information(self, "Payment", "Your order has been placed successfully!")
+            console.log("Order placed successfully!")
+            self.close()
+        else:
+            with open("./.logger", "r") as logger_file:
+                logger_data = json.load(logger_file)
+                email = logger_data.get("email")
+                password = logger_data.get("password")
+            user_data = get_user_data(email=email, password=password)
+            if user_data["money"] < discount_price(price=item['price'], discount=item['discount']) * self.ui.purchase_amount.value() + self.shipping + self.admin:
+                QMessageBox.warning(self, "Payment", "Your balance is not enough to make this purchase!")
+            else:
+                deduct_money(user_id=user_data["user_id"], amount=discount_price(price=item['price'], discount=item['discount']) * self.ui.purchase_amount.value() + self.shipping + self.admin)
+                self.ui.stackedWidget.setCurrentWidget(self.ui.sucess)
+                QMessageBox.information(self, "Payment", "Order placed successfully!")
+            console.log("Order placed successfully!")
+            self.close()
 
 if __name__ == "__main__":
     app = QApplication([])

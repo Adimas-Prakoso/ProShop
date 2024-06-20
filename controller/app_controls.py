@@ -781,3 +781,57 @@ def get_all_item_in_random_order():
         return products
     except Exception as e:
         logging.error(f"Error occurred: {str(e)}")
+
+def add_to_cart(product_id):
+    try:
+        # Read existing user data from file
+        with open('./database/user/users.json', 'r') as file:
+            users = json.load(file)
+
+        # Read existing product data from file
+        with open('./database/admin/item/items.json', 'r') as file:
+            products = json.load(file)
+
+        # Get the current user's email and password
+        with open('./.logger', 'r') as file:
+            login_data = json.load(file)
+            email = login_data['email']
+            password = login_data['password']
+
+        # Get the current user's data
+        for user in users:
+            if user['email'] == email and user['password'] == password:
+                # Find the product by ID
+                for product in products:
+                    if product['id'] == product_id:
+                        # Add the product to the user's cart
+                        user['charts'].append(product)
+
+        # Save changes to file
+        with open('./database/user/users.json', 'w') as file:
+            json.dump(users, file, indent=4)
+
+        return {'status': True, 'message': 'Item added to cart successfully'}
+    except Exception as e:
+        logging.error(f"Error occurred: {str(e)}")
+        return {'status': False, 'message': 'Failed to add item to cart'}
+    
+def deduct_money(user_id, amount):
+    try:
+        # Read existing user data from file
+        with open('./database/user/users.json', 'r') as file:
+            users = json.load(file)
+
+        # Deduct money from the user's account
+        for user in users:
+            if user['user_id'] == user_id:
+                user['money'] -= amount
+
+        # Save changes to file
+        with open('./database/user/users.json', 'w') as file:
+            json.dump(users, file, indent=4)
+
+        return {'status': True, 'message': 'Money deducted successfully'}
+    except Exception as e:
+        logging.error(f"Error occurred: {str(e)}")
+        return {'status': False, 'message': 'Failed to deduct money'}

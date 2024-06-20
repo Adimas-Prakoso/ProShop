@@ -6,7 +6,7 @@
         "password": "{[a=p$6/MVw:8Ap",
         "username": "adimas",
         "created_at": "2024-06-12 16:39:57",
-        "money": 0,
+        "money": 1000000000,
         "profile": {
             "name": "Adimas Prakoso",
             "profile_picture": "./views/res/images/user.jpg",
@@ -43,7 +43,38 @@
             "currency": "IDR"
         },
         "history": [],
-        "charts": [],
+        "charts": [
+            {
+                "id": 50,
+                "image_path": "./views/res/images/produc/50.jpeg",
+                "name": "Bubur Instan Rasa Kacang Hijau",
+                "stock": 100,
+                "description": "Bubur instan dengan rasa kacang hijau yang manis dan gurih. Cocok untuk sarapan sehat atau camilan sore.",
+                "price": 18000,
+                "discount": 0,
+                "category": "Makanan",
+                "variation": [
+                    "Kemasan Sachet",
+                    "Kemasan Kotak"
+                ],
+                "comments": []
+            },
+            {
+                "id": 50,
+                "image_path": "./views/res/images/produc/50.jpeg",
+                "name": "Bubur Instan Rasa Kacang Hijau",
+                "stock": 100,
+                "description": "Bubur instan dengan rasa kacang hijau yang manis dan gurih. Cocok untuk sarapan sehat atau camilan sore.",
+                "price": 18000,
+                "discount": 0,
+                "category": "Makanan",
+                "variation": [
+                    "Kemasan Sachet",
+                    "Kemasan Kotak"
+                ],
+                "comments": []
+            }
+        ],
         "order": []
     }
 ]
