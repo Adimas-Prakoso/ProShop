@@ -1071,6 +1071,16 @@ class UserMainWindow(QMainWindow):
         self.ui.price_9.setText(f"Rp {format(discount_price(price=discount_items[6]["price"], discount=discount_items[6]["discount"]), ',')}")
         self.ui.price_10.setText(f"Rp {format(discount_price(price=discount_items[7]["price"], discount=discount_items[7]["discount"]), ',')}")
 
+        # Set when buy button clicked
+        self.ui.buy_btn.clicked.connect(lambda: BuyItem(item=discount_items[0]))
+        self.ui.buy_btn_4.clicked.connect(lambda: BuyItem(item=discount_items[1]))
+        self.ui.buy_btn_5.clicked.connect(lambda: BuyItem(item=discount_items[2]))
+        self.ui.buy_btn_6.clicked.connect(lambda: BuyItem(item=discount_items[3]))
+        self.ui.buy_btn_7.clicked.connect(lambda: BuyItem(item=discount_items[4]))
+        self.ui.buy_btn_8.clicked.connect(lambda: BuyItem(item=discount_items[5]))
+        self.ui.buy_btn_9.clicked.connect(lambda: BuyItem(item=discount_items[6]))
+        self.ui.buy_btn_10.clicked.connect(lambda: BuyItem(item=discount_items[7]))
+
     def set_recomended_item(self):
         # Function to set the recommended items
         recomended_items = get_20_random_items()
@@ -1241,6 +1251,28 @@ class UserMainWindow(QMainWindow):
             self.ui.diskon_44.setText(f"{recomended_items[19]['discount']}%")
         else:
             self.ui.diskon_44.hide()
+
+        # Set when buy button clicked
+        self.ui.tombol.clicked.connect(lambda: BuyItem(item=recomended_items[0]))
+        self.ui.tombol_26.clicked.connect(lambda: BuyItem(item=recomended_items[1]))
+        self.ui.tombol_27.clicked.connect(lambda: BuyItem(item=recomended_items[2]))
+        self.ui.tombol_28.clicked.connect(lambda: BuyItem(item=recomended_items[3]))
+        self.ui.tombol_29.clicked.connect(lambda: BuyItem(item=recomended_items[4]))
+        self.ui.tombol_30.clicked.connect(lambda: BuyItem(item=recomended_items[5]))
+        self.ui.tombol_31.clicked.connect(lambda: BuyItem(item=recomended_items[6]))
+        self.ui.tombol_32.clicked.connect(lambda: BuyItem(item=recomended_items[7]))
+        self.ui.tombol_33.clicked.connect(lambda: BuyItem(item=recomended_items[8]))
+        self.ui.tombol_34.clicked.connect(lambda: BuyItem(item=recomended_items[9]))
+        self.ui.tombol_35.clicked.connect(lambda: BuyItem(item=recomended_items[10]))
+        self.ui.tombol_36.clicked.connect(lambda: BuyItem(item=recomended_items[11]))
+        self.ui.tombol_37.clicked.connect(lambda: BuyItem(item=recomended_items[12]))
+        self.ui.tombol_38.clicked.connect(lambda: BuyItem(item=recomended_items[13]))
+        self.ui.tombol_39.clicked.connect(lambda: BuyItem(item=recomended_items[14]))
+        self.ui.tombol_40.clicked.connect(lambda: BuyItem(item=recomended_items[15]))
+        self.ui.tombol_41.clicked.connect(lambda: BuyItem(item=recomended_items[16]))
+        self.ui.tombol_42.clicked.connect(lambda: BuyItem(item=recomended_items[17]))
+        self.ui.tombol_43.clicked.connect(lambda: BuyItem(item=recomended_items[18]))
+        self.ui.tombol_44.clicked.connect(lambda: BuyItem(item=recomended_items[19]))
 
     def closeEvent(self, event: CloseEvent):
         console.log("User main window closed!")
