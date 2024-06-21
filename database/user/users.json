@@ -6,11 +6,11 @@
         "password": "{[a=p$6/MVw:8Ap",
         "username": "adimas",
         "created_at": "2024-06-12 16:39:57",
-        "money": 989026992,
+        "money": 986003714,
         "profile": {
-            "name": "Adimas Prakoso",
+            "name": "Muhammad Jadetz Mulyono",
             "profile_picture": "./database/user/img/1.png",
-            "bio": "Hello there \ud83d\udc4b",
+            "bio": "Intinya ya begitu lah",
             "address": "GG. Pejuang 6 No. 60A",
             "phone": "",
             "gender": "Pria",
@@ -70,6 +70,22 @@
                 "name": "Jaket Bomber Pria",
                 "description": "Jaket bomber berbahan parasut yang tahan angin. Cocok untuk gaya sporty ataupun casual.",
                 "price": 391611,
+                "quantity": 1
+            },
+            {
+                "product_id": 17,
+                "image_path": "./views/res/images/produc/17.jpg",
+                "name": "Drone Mini Lipat",
+                "description": "Drone mini lipat dengan kamera 4K, fitur GPS, dan waktu terbang hingga 20 menit. Cocok untuk pemula yang ingin belajar menerbangkan drone.",
+                "price": 3023278,
+                "quantity": 1
+            },
+            {
+                "product_id": 41,
+                "image_path": "./views/res/images/produc/41.jpg",
+                "name": "Ciki Rasa Pedas",
+                "description": "Camilan ringan dengan rasa pedas yang gurih dan bikin ketagihan. Cocok untuk dinikmati kapan saja dan di mana saja.",
+                "price": 23302,
                 "quantity": 1
             }
         ]

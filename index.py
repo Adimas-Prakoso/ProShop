@@ -27,7 +27,7 @@ if choice == "1":
     UsrLoginWindow()
     app.exec()
 elif choice == "2":
-    helps = Markdown("# Pro Shop\n\n## Help\n\n1. User\n\n- To login as a user, select 1 and enter your credentials.\n- If you don't have an account, you can register.\n\n3. Help\n\n- To view this help message, select 3.")
+    helps = Markdown("# Pro Shop\n\n## Help\n\n1. User\n\n- To login as a user, select 1 and enter your credentials.\n- If you don't have an account, you can register.\n\n2. Help\n\n- To view this help message.")
     console.print(helps)
 else:
     console.print("Invalid choice. Please try again.")
