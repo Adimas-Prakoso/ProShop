@@ -13,7 +13,7 @@ install()
 
 app = QApplication([])
 console = Console()
-md = Markdown("# Welcome to the Pro Shop Management System\n\n## Please select your role\n\n1. User\n2. Admin\n\n3. Help")
+md = Markdown("# Welcome to the Pro Shop Management System\n\n## Please select your role\n\n1. User\n2. Help")
 console.print(md)
 
 choice = input("\nEnter your choice: ")
@@ -26,7 +26,7 @@ if choice == "1":
     console.log("User interface successfully opened!")
     UsrLoginWindow()
     app.exec()
-elif choice == "3":
+elif choice == "2":
     helps = Markdown("# Pro Shop\n\n## Help\n\n1. User\n\n- To login as a user, select 1 and enter your credentials.\n- If you don't have an account, you can register.\n\n3. Help\n\n- To view this help message, select 3.")
     console.print(helps)
 else:
