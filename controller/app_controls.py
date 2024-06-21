@@ -6,7 +6,6 @@ import random
 import string
 from rich.logging import RichHandler
 import logging
-import hashlib
 from PySide6 import *
 from PySide6.QtCore import *
 from PySide6.QtGui import *
@@ -122,27 +121,7 @@ def register_user(email, password, username):
                 'address': "",
                 'phone': "",
                 'gender': "",
-                'birthdate': "",
-                'payment': {
-                    'credit_debit': [],
-                    'bank_account': [],
-                    'ovo': {
-                        'phone_number': "",
-                        'username': ""
-                    },
-                    'gopay': {
-                        'phone_number': "",
-                        'username': ""
-                    },
-                    'shopee': {
-                        'phone_number': "",
-                        'username': ""
-                    },
-                    'dana': {
-                        'phone_number': "",
-                        'username': ""
-                    }
-                }
+                'birthdate': ""
             },
             'settings': {
                 'theme': "light",
@@ -860,6 +839,22 @@ def add_to_order(product_id, price, quantity):
     except Exception as e:
         logging.error(f"Error occurred: {str(e)}")
         return {'status': False, 'message': 'Failed to add item to order'}
+
+def show_order_item(user_id):
+    try:
+        # Read existing user data from file
+        with open('./database/user/users.json', 'r') as file:
+            users = json.load(file)
+
+        # Get the user's order
+        for user in users:
+            if user['user_id'] == user_id:
+                if 'order' in user and user['order']:
+                    return user['order']
+                else:
+                    return []
+    except Exception as e:
+        logging.error(f"Error occurred: {str(e)}")
     
 def deduct_money(user_id, amount):
     try:
@@ -918,7 +913,10 @@ def get_user_chart(user_id):
         # Get the user's cart
         for user in users:
             if user['user_id'] == user_id:
-                return user['charts']
+                if 'charts' in user and user['charts']:
+                    return user['charts']
+                else:
+                    return []
     except Exception as e:
         logging.error(f"Error occurred: {str(e)}")
 
@@ -943,3 +941,4 @@ def remove_from_cart(user_id, product_id):
     except Exception as e:
         logging.error(f"Error occurred: {str(e)}")
         return {'status': False, 'message': 'Failed to remove item from cart'}
+    
