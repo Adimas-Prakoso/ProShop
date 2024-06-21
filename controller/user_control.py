@@ -13,6 +13,7 @@ from views.user_main import user_MainWindow
 from views.user_profile import Ui_profile
 from views.user_settings import Ui_settings
 from views.buy_item import BuyWindow
+from views.user_chart import ChartWindow
 import time
 import threading
 import random
@@ -47,7 +48,9 @@ from controller.app_controls import (
     add_to_order,
     deduct_money,
     change_user_image,
-    copy_and_rename_image
+    copy_and_rename_image,
+    get_user_chart,
+    remove_from_cart
 )
 
 console = Console()
@@ -217,6 +220,7 @@ class UserMainWindow(QMainWindow):
         self.ui.mini_btn_logout.clicked.connect(self.logout)
         self.ui.profiile.clicked.connect(lambda: self.show_custom_context_menu(self.ui.profiile, ["Profile", "Settings", "Logout"]))
         self.ui.mini_btn_settings.clicked.connect(self.show_settings)
+        self.ui.chart.clicked.connect(lambda: self.show_chart())
         # Start the login status checking in a separate thread
         self.login_status_thread = threading.Thread(target=self.check_login_status)
         self.login_status_thread.start()
@@ -225,6 +229,10 @@ class UserMainWindow(QMainWindow):
         self.setup_connections()
         self.new_arrivals()
         self.search()
+    
+    def show_chart(self):
+        self.chart = UserCharts()
+        self.chart.show()
 
     def new_arrivals(self):
         items = get_last_10_items()
@@ -1659,7 +1667,181 @@ class BuyItem(QMainWindow):
             console.log("Order placed successfully!")
             self.close()
 
-# class UserCharts(QMainWindow):
+class UserCharts(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        self.ui = ChartWindow()
+        self.ui.setupUi(self)
+        self.setWindowTitle("User Charts")  # Set the window title
+        self.setWindowIcon(QIcon(os.path.abspath("./views/res/images/logo.jpeg")))
+        self.load_chart_items()
+        self.show()
+
+    def load_chart_items(self):
+        # Function to load the chart items
+        with open("./.logger", "r") as logger_file:
+            logger_data = json.load(logger_file)
+            email = logger_data.get("email")
+            password = logger_data.get("password")
+        user_ID = get_user_data(email=email, password=password)["user_id"]
+        chart_items = get_user_chart(user_id=user_ID)
+        for item in chart_items:
+            self.list_item = QListWidgetItem()
+            self.list_item.setSizeHint(QSize(0, 150))
+
+            self.centralwidget = QWidget()
+            self.centralwidget.setObjectName(u"centralwidget")
+            self.centralwidget.setMaximumSize(QSize(16777215, 150))
+            self.horizontalLayout = QHBoxLayout(self.centralwidget)
+            self.horizontalLayout.setObjectName(u"horizontalLayout")
+            self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
+            self.item_images = QFrame(self.centralwidget)
+            self.item_images.setObjectName(u"item_images")
+            self.item_images.setMinimumSize(QSize(150, 150))
+            self.item_images.setMaximumSize(QSize(150, 150))
+            self.item_images.setFrameShape(QFrame.Shape.StyledPanel)
+            self.item_images.setFrameShadow(QFrame.Shadow.Raised)
+            self.item_images.setStyleSheet(u"border-image: url(" + item["image_path"] + ");")
+
+            self.horizontalLayout.addWidget(self.item_images)
+
+            self.frame = QFrame(self.centralwidget)
+            self.frame.setObjectName(u"frame")
+            self.frame.setMaximumSize(QSize(16777215, 150))
+            self.frame.setStyleSheet(u"background-color: transparent;")
+            self.frame.setFrameShape(QFrame.Shape.NoFrame)
+            self.frame.setFrameShadow(QFrame.Shadow.Raised)
+            self.gridLayout = QGridLayout(self.frame)
+            self.gridLayout.setObjectName(u"gridLayout")
+            self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+            self.gridLayout.addItem(self.horizontalSpacer, 2, 2, 1, 1)
+
+            self.the_category = QLabel(self.frame)
+            self.the_category.setObjectName(u"the_category")
+            self.the_category.setMinimumSize(QSize(86, 0))
+            self.the_category.setMaximumSize(QSize(16777215, 16777215))
+            font = QFont()
+            font.setBold(True)
+            self.the_category.setFont(font)
+            self.the_category.setStyleSheet(u"border-radius: 12px;\n"
+                            "border-color: rgb(0, 0, 0);\n"
+                            "border-style: outset;\n"
+                            "border-width: 2px;\n"
+                            "padding-left: 10;\n"
+                            "padding-right: 10;")
+            self.the_category.setAlignment(Qt.AlignmentFlag.AlignCenter)
+            self.the_category.setText(item["category"])
+
+            self.gridLayout.addWidget(self.the_category, 2, 1, 1, 1)
+
+            self.categ = QLabel(self.frame)
+            self.categ.setObjectName(u"categ")
+            self.categ.setText("Category: ")
+
+            self.gridLayout.addWidget(self.categ, 2, 0, 1, 1)
+
+            self.desc = QLabel(self.frame)
+            self.desc.setObjectName(u"desc")
+            font1 = QFont()
+            font1.setFamilies([u"Segoe UI Light"])
+            font1.setItalic(True)
+            self.desc.setFont(font1)
+            self.desc.setAlignment(Qt.AlignmentFlag.AlignLeading | Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignTop)
+            self.desc.setWordWrap(True)
+            self.desc.setText(item["description"])
+
+            self.gridLayout.addWidget(self.desc, 1, 0, 1, 4)
+
+            self.names_itm = QLabel(self.frame)
+            self.names_itm.setObjectName(u"names_itm")
+            self.names_itm.setMaximumSize(QSize(16777215, 20))
+            font2 = QFont()
+            font2.setFamilies([u"Segoe UI Black"])
+            font2.setPointSize(10)
+            font2.setBold(True)
+            self.names_itm.setFont(font2)
+            self.names_itm.setAlignment(Qt.AlignmentFlag.AlignLeading | Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignTop)
+            self.names_itm.setText(item["name"])
+
+            self.gridLayout.addWidget(self.names_itm, 0, 0, 1, 4)
+
+            self.frame_2 = QFrame(self.frame)
+            self.frame_2.setObjectName(u"frame_2")
+            self.frame_2.setFrameShape(QFrame.Shape.NoFrame)
+            self.frame_2.setFrameShadow(QFrame.Shadow.Raised)
+            self.gridLayout_2 = QGridLayout(self.frame_2)
+            self.gridLayout_2.setObjectName(u"gridLayout_2")
+            self.itm_price = QLabel(self.frame_2)
+            self.itm_price.setObjectName(u"itm_price")
+            self.itm_price.setFont(font)
+            self.itm_price.setStyleSheet(u"color: rgb(0, 255, 247);")
+            if item["discount"] != 0:
+                self.itm_price.setText(f"Rp {format(discount_price(price=item['price'], discount=item['discount']), ',')}")
+            else:
+                self.itm_price.setText(f"Rp {format(item['price'], ',')}")
+
+            self.gridLayout_2.addWidget(self.itm_price, 0, 1, 1, 1)
+
+            self.discount_itm = QLabel(self.frame_2)
+            self.discount_itm.setObjectName(u"discount_itm")
+            self.discount_itm.setMaximumSize(QSize(200, 16777215))
+            font3 = QFont()
+            font3.setItalic(True)
+            font3.setStrikeOut(True)
+            self.discount_itm.setFont(font3)
+            self.discount_itm.setStyleSheet(u"color: rgb(255, 0, 0);")
+            if item["discount"] != 0:
+                self.discount_itm.setText(f"Rp {format(item['price'], ',')}")
+            else:
+                self.discount_itm.hide()
+
+            self.gridLayout_2.addWidget(self.discount_itm, 0, 0, 1, 1)
+
+            self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+            self.gridLayout_2.addItem(self.horizontalSpacer_2, 0, 2, 1, 1)
+
+            self.gridLayout.addWidget(self.frame_2, 3, 0, 1, 3)
+
+            self.horizontalLayout.addWidget(self.frame)
+
+            self.Buy_button = QPushButton(self.centralwidget)
+            self.Buy_button.setObjectName(u"Buy_button")
+            self.Buy_button.setMinimumSize(QSize(130, 130))
+            self.Buy_button.setMaximumSize(QSize(130, 130))
+            font4 = QFont()
+            font4.setFamilies([u"Segoe UI Black"])
+            font4.setPointSize(13)
+            self.Buy_button.setFont(font4)
+            self.Buy_button.setCursor(QCursor(Qt.PointingHandCursor))
+            self.Buy_button.setStyleSheet(u"background-color: rgb(237, 41, 89);\n"
+                               "color: rgb(255, 255, 255);\n"
+                               "border-radius: 10px;")
+            self.Buy_button.clicked.connect(lambda _, item=item: BuyItem(item=item))
+
+            self.horizontalLayout.addWidget(self.Buy_button)
+
+            self.del_btn = QPushButton(self.centralwidget)
+            self.del_btn.setObjectName(u"del_btn")
+            self.del_btn.setMinimumSize(QSize(130, 130))
+            self.del_btn.setMaximumSize(QSize(130, 130))
+            self.del_btn.setFont(font4)
+            self.del_btn.setStyleSheet(u"background-color: rgb(237, 41, 89);\n"
+                            "color: rgb(255, 255, 255);\n"
+                            "border-radius: 10px;")
+            
+            self.del_btn.clicked.connect(lambda: remove_from_cart(user_id=user_ID, product_id=item["id"]))
+
+            self.horizontalLayout.addWidget(self.del_btn)
+            
+            # Set the item widget for the list item
+            self.ui.chart_list.addItem(self.list_item)
+            self.ui.chart_list.setItemWidget(self.list_item, self.centralwidget)
+
+
+    def closeEvent(self, event: CloseEvent):
+        console.log("User chart window closed!")
 
 if __name__ == "__main__":
     app = QApplication([])

@@ -148,6 +148,9 @@ padding-right: 10;</string>
          <property name="alignment">
           <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignTop</set>
          </property>
+         <property name="wordWrap">
+          <bool>true</bool>
+         </property>
         </widget>
        </item>
        <item row="0" column="0" colspan="4">
@@ -268,6 +271,36 @@ border-radius: 10px;</string>
       </property>
       <property name="text">
        <string>BUY</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="del_btn">
+      <property name="minimumSize">
+       <size>
+        <width>130</width>
+        <height>130</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>130</width>
+        <height>130</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <family>Segoe UI Black</family>
+        <pointsize>13</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(237, 41, 89);
+color: rgb(255, 255, 255);
+border-radius: 10px;</string>
+      </property>
+      <property name="text">
+       <string>DELETE</string>
       </property>
      </widget>
     </item>
