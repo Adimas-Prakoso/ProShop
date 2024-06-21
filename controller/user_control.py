@@ -422,11 +422,11 @@ class UserMainWindow(QMainWindow):
                 font.setBold(True)
                 self.the_category.setFont(font)
                 self.the_category.setStyleSheet(u"border-radius: 12px;\n"
-                "border-color: rgb(0, 0, 0);\n"
-                "border-style: outset;\n"
-                "border-width: 2px;\n"
-                "padding-left: 10;\n"
-                "padding-right: 10;")
+                                                "border-color: rgb(0, 0, 0);\n"
+                                                "border-style: outset;\n"
+                                                "border-width: 2px;\n"
+                                                "padding-left: 10;\n"
+                                                "padding-right: 10;")
                 self.the_category.setAlignment(Qt.AlignmentFlag.AlignCenter)
                 self.the_category.setText(item["category"])
 
@@ -443,7 +443,7 @@ class UserMainWindow(QMainWindow):
                 font1.setFamilies([u"Segoe UI Light"])
                 font1.setItalic(True)
                 self.desc.setFont(font1)
-                self.desc.setAlignment(Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignTop)
+                self.desc.setAlignment(Qt.AlignmentFlag.AlignLeading | Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignTop)
                 self.desc.setText(item["description"])
 
                 self.gridLayout.addWidget(self.desc, 1, 0, 1, 4)
@@ -456,7 +456,7 @@ class UserMainWindow(QMainWindow):
                 font2.setPointSize(10)
                 font2.setBold(True)
                 self.names_itm.setFont(font2)
-                self.names_itm.setAlignment(Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignTop)
+                self.names_itm.setAlignment(Qt.AlignmentFlag.AlignLeading | Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignTop)
                 self.names_itm.setText(item["name"])
 
                 self.gridLayout.addWidget(self.names_itm, 0, 0, 1, 4)
@@ -500,6 +500,23 @@ class UserMainWindow(QMainWindow):
                 self.gridLayout.addWidget(self.frame_2, 3, 0, 1, 3)
 
                 self.horizontalLayout.addWidget(self.frame)
+
+                self.Buy_button = QPushButton(self.centralwidget)
+                self.Buy_button.setObjectName(u"Buy_button")
+                self.Buy_button.setMinimumSize(QSize(130, 130))
+                self.Buy_button.setMaximumSize(QSize(130, 130))
+                font4 = QFont()
+                font4.setFamilies([u"Segoe UI Black"])
+                font4.setPointSize(13)
+                self.Buy_button.setFont(font4)
+                self.Buy_button.setCursor(QCursor(Qt.PointingHandCursor))
+                self.Buy_button.setStyleSheet(u"background-color: rgb(237, 41, 89);\n"
+                                              "color: rgb(255, 255, 255);\n"
+                                              "border-radius: 10px;")
+                self.Buy_button.setText("BUY")
+                self.Buy_button.clicked.connect(lambda _, item=item: BuyItem(item=item))
+
+                self.horizontalLayout.addWidget(self.Buy_button)
                 
                 # Set the item widget for the list item
                 self.ui.listWidget.addItem(self.list_item)
@@ -553,11 +570,11 @@ class UserMainWindow(QMainWindow):
                 font.setBold(True)
                 self.the_category.setFont(font)
                 self.the_category.setStyleSheet(u"border-radius: 12px;\n"
-                "border-color: rgb(0, 0, 0);\n"
-                "border-style: outset;\n"
-                "border-width: 2px;\n"
-                "padding-left: 10;\n"
-                "padding-right: 10;")
+                                                "border-color: rgb(0, 0, 0);\n"
+                                                "border-style: outset;\n"
+                                                "border-width: 2px;\n"
+                                                "padding-left: 10;\n"
+                                                "padding-right: 10;")
                 self.the_category.setAlignment(Qt.AlignmentFlag.AlignCenter)
                 self.the_category.setText(item["category"])
 
@@ -574,7 +591,7 @@ class UserMainWindow(QMainWindow):
                 font1.setFamilies([u"Segoe UI Light"])
                 font1.setItalic(True)
                 self.desc.setFont(font1)
-                self.desc.setAlignment(Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignTop)
+                self.desc.setAlignment(Qt.AlignmentFlag.AlignLeading | Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignTop)
                 self.desc.setText(item["description"])
 
                 self.gridLayout.addWidget(self.desc, 1, 0, 1, 4)
@@ -587,7 +604,7 @@ class UserMainWindow(QMainWindow):
                 font2.setPointSize(10)
                 font2.setBold(True)
                 self.names_itm.setFont(font2)
-                self.names_itm.setAlignment(Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignTop)
+                self.names_itm.setAlignment(Qt.AlignmentFlag.AlignLeading | Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignTop)
                 self.names_itm.setText(item["name"])
 
                 self.gridLayout.addWidget(self.names_itm, 0, 0, 1, 4)
@@ -631,6 +648,23 @@ class UserMainWindow(QMainWindow):
                 self.gridLayout.addWidget(self.frame_2, 3, 0, 1, 3)
 
                 self.horizontalLayout.addWidget(self.frame)
+
+                self.Buy_button = QPushButton(self.centralwidget)
+                self.Buy_button.setObjectName(u"Buy_button")
+                self.Buy_button.setMinimumSize(QSize(130, 130))
+                self.Buy_button.setMaximumSize(QSize(130, 130))
+                font4 = QFont()
+                font4.setFamilies([u"Segoe UI Black"])
+                font4.setPointSize(13)
+                self.Buy_button.setFont(font4)
+                self.Buy_button.setCursor(QCursor(Qt.PointingHandCursor))
+                self.Buy_button.setStyleSheet(u"background-color: rgb(237, 41, 89);\n"
+                                              "color: rgb(255, 255, 255);\n"
+                                              "border-radius: 10px;")
+                self.Buy_button.setText("BUY")
+                self.Buy_button.clicked.connect(lambda _, item=item: BuyItem(item=item))
+
+                self.horizontalLayout.addWidget(self.Buy_button)
                 
                 # Set the item widget for the list item
                 self.ui.listWidget_2.addItem(self.list_item)
@@ -754,9 +788,28 @@ class UserMainWindow(QMainWindow):
 
             self.gridLayout_2.addItem(self.horizontalSpacer_2, 0, 2, 1, 1)
 
+
             self.gridLayout.addWidget(self.frame_2, 3, 0, 1, 3)
 
+
             self.horizontalLayout.addWidget(self.frame)
+
+            self.Buy_button = QPushButton(self.centralwidget)
+            self.Buy_button.setObjectName(u"Buy_button")
+            self.Buy_button.setMinimumSize(QSize(130, 130))
+            self.Buy_button.setMaximumSize(QSize(130, 130))
+            font4 = QFont()
+            font4.setFamilies([u"Segoe UI Black"])
+            font4.setPointSize(13)
+            self.Buy_button.setFont(font4)
+            self.Buy_button.setCursor(QCursor(Qt.PointingHandCursor))
+            self.Buy_button.setStyleSheet(u"background-color: rgb(237, 41, 89);\n"
+            "color: rgb(255, 255, 255);\n"
+            "border-radius: 10px;")
+            self.Buy_button.setText("BUY")
+            self.Buy_button.clicked.connect(lambda _, item=item: BuyItem(item=item))
+
+            self.horizontalLayout.addWidget(self.Buy_button)
             
             # Set the item widget for the list item
             self.ui.listWidget.addItem(self.list_item)
@@ -877,9 +930,28 @@ class UserMainWindow(QMainWindow):
 
             self.gridLayout_2.addItem(self.horizontalSpacer_2, 0, 2, 1, 1)
 
+
             self.gridLayout.addWidget(self.frame_2, 3, 0, 1, 3)
 
+
             self.horizontalLayout.addWidget(self.frame)
+
+            self.Buy_button = QPushButton(self.centralwidget)
+            self.Buy_button.setObjectName(u"Buy_button")
+            self.Buy_button.setMinimumSize(QSize(130, 130))
+            self.Buy_button.setMaximumSize(QSize(130, 130))
+            font4 = QFont()
+            font4.setFamilies([u"Segoe UI Black"])
+            font4.setPointSize(13)
+            self.Buy_button.setFont(font4)
+            self.Buy_button.setCursor(QCursor(Qt.PointingHandCursor))
+            self.Buy_button.setStyleSheet(u"background-color: rgb(237, 41, 89);\n"
+            "color: rgb(255, 255, 255);\n"
+            "border-radius: 10px;")
+            self.Buy_button.setText("BUY")
+            self.Buy_button.clicked.connect(lambda _, item=item: BuyItem(item=item))
+
+            self.horizontalLayout.addWidget(self.Buy_button)
             
             # Set the item widget for the list item
             self.ui.listWidget_2.addItem(self.list_item)
