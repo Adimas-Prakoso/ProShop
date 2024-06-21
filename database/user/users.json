@@ -9,7 +9,7 @@
         "money": 999908476,
         "profile": {
             "name": "Adimas Prakoso",
-            "profile_picture": "./views/res/images/user.jpg",
+            "profile_picture": "./database/user/img/1.png",
             "bio": "Hello there \ud83d\udc4b",
             "address": "GG. Pejuang 6 No. 60A",
             "phone": "",

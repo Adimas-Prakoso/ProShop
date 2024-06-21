@@ -4,7 +4,7 @@ import os
 from PySide6 import QtCore, QtWidgets
 from PySide6.QtCore import QSize, Qt
 from PySide6.QtGui import QMovie, QIcon, QAction, QFont, QCursor
-from PySide6.QtWidgets import QMainWindow, QApplication, QMessageBox, QLineEdit, QMenu, QListWidgetItem, QGridLayout, QLabel, QFrame, QHBoxLayout, QWidget, QSpacerItem, QSizePolicy, QPushButton
+from PySide6.QtWidgets import QMainWindow, QApplication, QMessageBox, QLineEdit, QMenu, QListWidgetItem, QGridLayout, QLabel, QFrame, QHBoxLayout, QWidget, QSpacerItem, QSizePolicy, QPushButton, QFileDialog
 from matplotlib.backend_bases import CloseEvent
 from rich.console import Console
 from views.admin_login import admin_login
@@ -16,6 +16,7 @@ from views.buy_item import BuyWindow
 import time
 import threading
 import random
+import shutil
 
 from controller.app_controls import (
     register_user,
@@ -44,7 +45,9 @@ from controller.app_controls import (
     get_all_item_in_random_order,
     add_to_cart,
     add_to_order,
-    deduct_money
+    deduct_money,
+    change_user_image,
+    copy_and_rename_image
 )
 
 console = Console()
@@ -195,15 +198,7 @@ class UserMainWindow(QMainWindow):
             password = logger_data.get("password")
             user_data = get_user_data(email=email, password=password)
             self.ui.welcome_txt.setText("Hi, " + user_data["username"])
-            profile_picture = user_data['profile']['profile_picture']
-            if os.path.isfile(profile_picture):
-                self.ui.profile_img.setStyleSheet(
-                    "border-color: rgb(0, 0, 0); border-style: outset; border-width: 1px; border-radius: 20px; border-image: url("
-                    + profile_picture
-                    + ");"
-                )
-            else:
-                console.log(f"Could not create pixmap from {profile_picture}")
+            self.profile_picture = user_data['profile']['profile_picture']
         self.ui.mini_btn_home.clicked.connect(lambda: self.toggle_mini_buttons(self.ui.mini_btn_home))
         self.ui.mini_btn_search.clicked.connect(lambda: self.toggle_mini_buttons(self.ui.mini_btn_search))
         self.ui.mini_btn_discount.clicked.connect(lambda: self.toggle_mini_buttons(self.ui.mini_btn_discount))
@@ -912,6 +907,14 @@ class UserMainWindow(QMainWindow):
                 self.handle_login_status(status["status"])
                 user_money = get_user_data(email=email, password=password)["money"]
                 self.ui.money.setText(f"Rp {format(user_money, ',')}")
+                if os.path.isfile(self.profile_picture):
+                    self.ui.profile_img.setStyleSheet(
+                        "border-color: rgb(0, 0, 0); border-style: outset; border-width: 1px; border-radius: 20px; border-image: url("
+                        + self.profile_picture
+                        + ");"
+                    )
+                else:
+                    console.log(f"Could not create pixmap from {self.profile_picture}")
             time.sleep(5)
     
     def handle_login_status(self, login_status):
@@ -1291,7 +1294,29 @@ class UserProfile(QMainWindow):
         self.ui.phone.setText(user_data["phone"])
         self.ui.gender.setCurrentText(user_data["gender"])
         self.ui.lahir.setText(user_data["birthdate"])
+        self.ui.image_profile.setStyleSheet(f"border-image: url({user_data['profile_picture']}); border-color: rgb(0, 0, 0); border-style: outset; border-width: 2px; border-radius: 75px;")
+        self.ui.change_btn.clicked.connect(lambda: self.open_image_dialog())
         self.show()
+
+    def open_image_dialog(self):
+            options = QFileDialog.Options()
+            options |= QFileDialog.DontUseNativeDialog
+            file_filter = "Image Files (*.jpg *.jpeg *.png)"
+            file_path, _ = QFileDialog.getOpenFileName(None, "Select Image", "", file_filter, options=options)
+            if file_path:
+                # Do something with the selected image file
+                copied_image_path = copy_and_rename_image(file_path=file_path, user_id=get_user_data(email=self.email, password=self.password)["user_id"])
+                # Example usage:
+                response = change_user_image(user_id=get_user_data(email=self.email, password=self.password)["user_id"], image_path=copied_image_path)
+                if response["status"]:
+                    self.ui.image_profile.setStyleSheet(f"border-image: url({copied_image_path}); border-color: rgb(0, 0, 0); border-style: outset; border-width: 2px; border-radius: 75px;")
+                    QMessageBox.information(self, "Profile Picture Changed", response["message"])
+                    console.log("Profile picture changed successfully!")
+                else:
+                    QMessageBox.warning(self, "Profile Picture Change Failed", response["message"])
+                    console.error("Profile picture change failed!")
+            else:
+                print("No image file selected")
 
     def save_profile(self):
         # Function to save the profile

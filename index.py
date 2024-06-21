@@ -26,11 +26,8 @@ if choice == "1":
     console.log("User interface successfully opened!")
     UsrLoginWindow()
     app.exec()
-elif choice == "2":
-    # Add code for admin functionality
-    pass
 elif choice == "3":
-    helps = Markdown("# Pro Shop\n\n## Help\n\n1. User\n\n- To login as a user, select 1 and enter your credentials.\n- If you don't have an account, you can register.\n\n2. Admin\n\n- To login as an admin, select 2 and enter your credentials.\n- admin default password is admin and username is admin.\n\n3. Help\n\n- To view this help message, select 3.")
+    helps = Markdown("# Pro Shop\n\n## Help\n\n1. User\n\n- To login as a user, select 1 and enter your credentials.\n- If you don't have an account, you can register.\n\n3. Help\n\n- To view this help message, select 3.")
     console.print(helps)
 else:
     console.print("Invalid choice. Please try again.")

@@ -14,6 +14,7 @@ from PySide6.QtWidgets import *
 import requests
 import smtplib
 import platform
+import shutil
 gmail_app_pass = "oztkzjrsjmwmvmgc"
 
 # Configure logging
@@ -879,3 +880,31 @@ def deduct_money(user_id, amount):
     except Exception as e:
         logging.error(f"Error occurred: {str(e)}")
         return {'status': False, 'message': 'Failed to deduct money'}
+    
+def change_user_image(user_id, image_path):
+    try:
+        # Read existing user data from file
+        with open('./database/user/users.json', 'r') as file:
+            users = json.load(file)
+
+        # Change user's profile picture
+        for user in users:
+            if user['user_id'] == user_id:
+                user['profile']['profile_picture'] = image_path
+
+        # Save changes to file
+        with open('./database/user/users.json', 'w') as file:
+            json.dump(users, file, indent=4)
+
+        return {'status': True, 'message': 'Profile picture changed successfully'}
+    except Exception as e:
+        logging.error(f"Error occurred: {str(e)}")
+        return {'status': False, 'message': 'Failed to change profile picture'}
+    
+def copy_and_rename_image(file_path, user_id):
+    # Copy and rename image file
+    file_extension = file_path.split('.')[-1]
+    new_file_path = f"./database/user/img/{user_id}.{file_extension}"
+    shutil.copy(file_path, new_file_path)
+
+    return new_file_path
