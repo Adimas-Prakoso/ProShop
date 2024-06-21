@@ -801,7 +801,7 @@ def add_to_cart(product_id):
         logging.error(f"Error occurred: {str(e)}")
         return {'status': False, 'message': 'Failed to add item to cart'}
     
-def add_to_order(product_id, price, quantity):
+def add_to_order(product_id, image, product_name, produc_desc, price, quantity):
     try:
         # Read existing user data from file
         with open('./database/user/users.json', 'r') as file:
@@ -826,8 +826,11 @@ def add_to_order(product_id, price, quantity):
                         # Add the product to the user's order
                         add_order = {
                             'product_id': product_id,
+                            'image_path': image,
+                            'name': product_name,
+                            'description': produc_desc,
                             'price': price,
-                            'quantity': quantity
+                            'quantity': quantity,
                         }
                         user['order'].append(add_order)
 

@@ -219,6 +219,7 @@ class UserMainWindow(QMainWindow):
         self.set_discount_item()
         self.set_recomended_item()
         self.setup_connections()
+        self.display_order()
         self.new_arrivals()
         self.search()
     
@@ -235,9 +236,8 @@ class UserMainWindow(QMainWindow):
             email = logger_data.get("email")
             password = logger_data.get("password")
             user_data = get_user_data(email=email, password=password)
-            order = show_order_item(user_id=user_data["id"])
-            get_data_item = get_produc_by_id(order["product_id"])
-            for item in get_data_item:
+            order = show_order_item(user_data["user_id"])
+            for item in order:
                 self.list_item = QListWidgetItem()
                 self.list_item.setSizeHint(QSize(0, 150))
 
@@ -246,7 +246,7 @@ class UserMainWindow(QMainWindow):
                 self.centralwidget.setMaximumSize(QSize(16777215, 150))
                 self.horizontalLayout = QHBoxLayout(self.centralwidget)
                 self.horizontalLayout.setObjectName(u"horizontalLayout")
-                self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
+                self.horizontalLayout.setContentsMargins(0, 0, 9, 0)
                 self.item_images = QFrame(self.centralwidget)
                 self.item_images.setObjectName(u"item_images")
                 self.item_images.setMinimumSize(QSize(150, 150))
@@ -265,56 +265,18 @@ class UserMainWindow(QMainWindow):
                 self.frame.setFrameShadow(QFrame.Shadow.Raised)
                 self.gridLayout = QGridLayout(self.frame)
                 self.gridLayout.setObjectName(u"gridLayout")
-                self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
-
-                self.gridLayout.addItem(self.horizontalSpacer, 2, 2, 1, 1)
-
-                self.the_category = QLabel(self.frame)
-                self.the_category.setObjectName(u"the_category")
-                self.the_category.setMinimumSize(QSize(86, 0))
-                self.the_category.setMaximumSize(QSize(16777215, 16777215))
-                font = QFont()
-                font.setBold(True)
-                self.the_category.setFont(font)
-                self.the_category.setStyleSheet(u"border-radius: 12px;\n"
-                "border-color: rgb(0, 0, 0);\n"
-                "border-style: outset;\n"
-                "border-width: 2px;\n"
-                "padding-left: 10;\n"
-                "padding-right: 10;")
-                self.the_category.setAlignment(Qt.AlignmentFlag.AlignCenter)
-                self.the_category.setText(item["category"])
-
-                self.gridLayout.addWidget(self.the_category, 2, 1, 1, 1)
-
-                self.categ = QLabel(self.frame)
-                self.categ.setObjectName(u"categ")
-
-                self.gridLayout.addWidget(self.categ, 2, 0, 1, 1)
-
-                self.desc = QLabel(self.frame)
-                self.desc.setObjectName(u"desc")
-                font1 = QFont()
-                font1.setFamilies([u"Segoe UI Light"])
-                font1.setItalic(True)
-                self.desc.setFont(font1)
-                self.desc.setAlignment(Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignTop)
-                self.desc.setText(item["description"])
-
-                self.gridLayout.addWidget(self.desc, 1, 0, 1, 4)
-
                 self.names_itm = QLabel(self.frame)
                 self.names_itm.setObjectName(u"names_itm")
                 self.names_itm.setMaximumSize(QSize(16777215, 20))
-                font2 = QFont()
-                font2.setFamilies([u"Segoe UI Black"])
-                font2.setPointSize(10)
-                font2.setBold(True)
-                self.names_itm.setFont(font2)
+                font = QFont()
+                font.setFamilies([u"Segoe UI Black"])
+                font.setPointSize(10)
+                font.setBold(True)
+                self.names_itm.setFont(font)
                 self.names_itm.setAlignment(Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignTop)
                 self.names_itm.setText(item["name"])
 
-                self.gridLayout.addWidget(self.names_itm, 0, 0, 1, 4)
+                self.gridLayout.addWidget(self.names_itm, 0, 0, 1, 3)
 
                 self.frame_2 = QFrame(self.frame)
                 self.frame_2.setObjectName(u"frame_2")
@@ -322,62 +284,77 @@ class UserMainWindow(QMainWindow):
                 self.frame_2.setFrameShadow(QFrame.Shadow.Raised)
                 self.gridLayout_2 = QGridLayout(self.frame_2)
                 self.gridLayout_2.setObjectName(u"gridLayout_2")
-                self.itm_price = QLabel(self.frame_2)
-                self.itm_price.setObjectName(u"itm_price")
-                self.itm_price.setFont(font)
-                self.itm_price.setStyleSheet(u"color: rgb(0, 255, 247);")
-                if item["discount"] == 0:
-                    self.itm_price.setText(f"Rp {format(item['price'], ',')}")
-                else:
-                    self.itm_price.setText(f"Rp {format(discount_price(price=item['price'], discount=item['discount']), ',')}")
+                self.quantity = QLabel(self.frame_2)
+                self.quantity.setObjectName(u"quantity")
+                self.quantity.setText(f"× {item['quantity']}")
 
-                self.gridLayout_2.addWidget(self.itm_price, 0, 1, 1, 1)
+                self.gridLayout_2.addWidget(self.quantity, 1, 1, 1, 1)
+
+                self.label_status = QLabel(self.frame_2)
+                self.label_status.setObjectName(u"label_status")
+                self.label_status.setText("Status: ")
+
+                self.gridLayout_2.addWidget(self.label_status, 2, 0, 1, 1)
+
+                self.label_quantity = QLabel(self.frame_2)
+                self.label_quantity.setObjectName(u"label_quantity")
+                self.label_quantity.setText("Quantity: ")
+
+                self.gridLayout_2.addWidget(self.label_quantity, 1, 0, 1, 1)
 
                 self.discount_itm = QLabel(self.frame_2)
                 self.discount_itm.setObjectName(u"discount_itm")
                 self.discount_itm.setMaximumSize(QSize(200, 16777215))
-                font3 = QFont()
-                font3.setItalic(True)
-                font3.setStrikeOut(True)
-                self.discount_itm.setFont(font3)
+                font1 = QFont()
+                font1.setItalic(True)
+                font1.setStrikeOut(True)
+                self.discount_itm.setFont(font1)
                 self.discount_itm.setStyleSheet(u"color: rgb(255, 0, 0);")
-                if item["discount"] == 0:
-                    self.discount_itm.hide()
-                else:
-                    self.discount_itm.setText(f"Rp {format(item['price'], ',')}")
+                self.discount_itm.hide()
 
                 self.gridLayout_2.addWidget(self.discount_itm, 0, 0, 1, 1)
 
+                self.itm_price = QLabel(self.frame_2)
+                self.itm_price.setObjectName(u"itm_price")
+                font2 = QFont()
+                font2.setBold(True)
+                self.itm_price.setFont(font2)
+                self.itm_price.setStyleSheet(u"color: rgb(0, 255, 247);")
+                self.itm_price.setText(f"Rp {format(item['price'], ',')}")
+
+                self.gridLayout_2.addWidget(self.itm_price, 0, 1, 1, 1)
+
+                self.status_barang = QLabel(self.frame_2)
+                self.status_barang.setObjectName(u"status_barang")
+                font3 = QFont()
+                font3.setFamilies([u"Segoe UI Black"])
+                self.status_barang.setFont(font3)
+                self.status_barang.setStyleSheet(u"color: rgb(0, 255, 0);")
+                self.status_barang.setText("SEDANG DI PROSES")
+
+                self.gridLayout_2.addWidget(self.status_barang, 2, 1, 1, 1)
+
+                self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+                self.gridLayout_2.addItem(self.horizontalSpacer, 0, 2, 1, 1)
+
                 self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
-                self.gridLayout_2.addItem(self.horizontalSpacer_2, 0, 2, 1, 1)
+                self.gridLayout_2.addItem(self.horizontalSpacer_2, 1, 2, 1, 1)
+
+                self.horizontalSpacer_3 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+                self.gridLayout_2.addItem(self.horizontalSpacer_3, 2, 2, 1, 1)
 
 
-                self.gridLayout.addWidget(self.frame_2, 3, 0, 1, 3)
+                self.gridLayout.addWidget(self.frame_2, 1, 0, 1, 3)
 
 
                 self.horizontalLayout.addWidget(self.frame)
-
-                self.Buy_button = QPushButton(self.centralwidget)
-                self.Buy_button.setObjectName(u"Buy_button")
-                self.Buy_button.setMinimumSize(QSize(130, 130))
-                self.Buy_button.setMaximumSize(QSize(130, 130))
-                font4 = QFont()
-                font4.setFamilies([u"Segoe UI Black"])
-                font4.setPointSize(13)
-                self.Buy_button.setFont(font4)
-                self.Buy_button.setCursor(QCursor(Qt.PointingHandCursor))
-                self.Buy_button.setStyleSheet(u"background-color: rgb(237, 41, 89);\n"
-                "color: rgb(255, 255, 255);\n"
-                "border-radius: 10px;")
-                self.Buy_button.setText("BUY")
-                self.Buy_button.clicked.connect(lambda _, item=item: BuyItem(item=item))
-
-                self.horizontalLayout.addWidget(self.Buy_button)
                 
                 # Set the item widget for the list item
-                self.ui.listWidget_3.addItem(self.list_item)
-                self.ui.listWidget_3.setItemWidget(self.list_item, self.centralwidget)
+                self.ui.listWidget_7.addItem(self.list_item)
+                self.ui.listWidget_7.setItemWidget(self.list_item, self.centralwidget)
 
                 
 
@@ -1797,7 +1774,7 @@ class BuyItem(QMainWindow):
         if self.ui.buy_payment.currentText() == "COD":
             QMessageBox.information(self, "Payment", "Your order has been placed successfully!")
             console.log("Order placed successfully!")
-            add_to_order(product_id=item["id"], price=discount_price(price=item['price'], discount=item['discount']) * self.ui.purchase_amount.value() + self.shipping + self.admin, quantity=self.ui.purchase_amount.value())
+            add_to_order(product_id=item["id"], image=item["image_path"], product_name=item["name"], produc_desc=item["description"], price=discount_price(price=item['price'], discount=item['discount']) * self.ui.purchase_amount.value() + self.shipping + self.admin, quantity=self.ui.purchase_amount.value())
             self.close()
         else:
             with open("./.logger", "r") as logger_file:
@@ -1810,7 +1787,7 @@ class BuyItem(QMainWindow):
             else:
                 deduct_money(user_id=user_data["user_id"], amount=discount_price(price=item['price'], discount=item['discount']) * self.ui.purchase_amount.value() + self.shipping + self.admin)
                 self.ui.stackedWidget.setCurrentWidget(self.ui.sucess)
-                add_to_order(product_id=item["id"], price=discount_price(price=item['price'], discount=item['discount']) * self.ui.purchase_amount.value() + self.shipping + self.admin, quantity=self.ui.purchase_amount.value())
+                add_to_order(product_id=item["id"], image=item["image_path"], product_name=item["name"], produc_desc=item["description"], price=discount_price(price=item['price'], discount=item['discount']) * self.ui.purchase_amount.value() + self.shipping + self.admin, quantity=self.ui.purchase_amount.value())
                 QMessageBox.information(self, "Payment", "Order placed successfully!")
             console.log("Order placed successfully!")
             self.close()

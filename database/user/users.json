@@ -1,60 +1,77 @@
 [
-  {
-    "user_id": 1,
-    "hash_id": "cYSOsHYrabTt2NqRXWscjouBdeOR5w1vwdebvwKsxAjh2V4zaMTeIkueE8GVUVB7",
-    "email": "adimas.prakoso090704@outlook.com",
-    "password": "{[a=p$6/MVw:8Ap",
-    "username": "adimas",
-    "created_at": "2024-06-12 16:39:57",
-    "money": 994796601,
-    "profile": {
-      "name": "Adimas Prakoso",
-      "profile_picture": "./database/user/img/1.png",
-      "bio": "Hello there \ud83d\udc4b",
-      "address": "GG. Pejuang 6 No. 60A",
-      "phone": "",
-      "gender": "Pria",
-      "birthdate": ""
-    },
-    "settings": {
-      "theme": "light",
-      "language": "id",
-      "notifications": false,
-      "currency": "IDR"
-    },
-    "history": [],
-    "charts": [
-      {
-        "id": 20,
-        "image_path": "./views/res/images/produc/20.jpeg",
-        "name": "Tablet Android Terbaru",
-        "stock": 60,
-        "description": "Tablet dengan layar Full HD+, RAM 6GB, kamera 12MP, dan baterai 7000mAh. Cocok untuk pengguna yang menginginkan tablet yang powerful dan tahan lama.",
-        "price": 4000000,
-        "discount": 10,
-        "category": "Elektronik",
-        "variation": [
-          "Warna Abu-abu - RAM 6GB/Internal 128GB",
-          "Warna Emas - RAM 8GB/Internal 256GB"
+    {
+        "user_id": 1,
+        "hash_id": "cYSOsHYrabTt2NqRXWscjouBdeOR5w1vwdebvwKsxAjh2V4zaMTeIkueE8GVUVB7",
+        "email": "adimas.prakoso090704@outlook.com",
+        "password": "{[a=p$6/MVw:8Ap",
+        "username": "adimas",
+        "created_at": "2024-06-12 16:39:57",
+        "money": 989026992,
+        "profile": {
+            "name": "Adimas Prakoso",
+            "profile_picture": "./database/user/img/1.png",
+            "bio": "Hello there \ud83d\udc4b",
+            "address": "GG. Pejuang 6 No. 60A",
+            "phone": "",
+            "gender": "Pria",
+            "birthdate": ""
+        },
+        "settings": {
+            "theme": "light",
+            "language": "id",
+            "notifications": false,
+            "currency": "IDR"
+        },
+        "history": [],
+        "charts": [
+            {
+                "id": 20,
+                "image_path": "./views/res/images/produc/20.jpeg",
+                "name": "Tablet Android Terbaru",
+                "stock": 60,
+                "description": "Tablet dengan layar Full HD+, RAM 6GB, kamera 12MP, dan baterai 7000mAh. Cocok untuk pengguna yang menginginkan tablet yang powerful dan tahan lama.",
+                "price": 4000000,
+                "discount": 10,
+                "category": "Elektronik",
+                "variation": [
+                    "Warna Abu-abu - RAM 6GB/Internal 128GB",
+                    "Warna Emas - RAM 8GB/Internal 256GB"
+                ],
+                "comments": []
+            },
+            {
+                "id": 10,
+                "image_path": "./views/res/images/produc/10.jpg",
+                "name": "Smartphone Android Terbaru",
+                "stock": 50,
+                "description": "Smartphone dengan layar Full HD+, RAM 8GB, kamera 64MP, dan baterai 5000mAh. Cocok untuk pengguna yang menginginkan performa terbaik.",
+                "price": 6000000,
+                "discount": 15,
+                "category": "Elektronik",
+                "variation": [
+                    "Warna Hitam - RAM 8GB/Internal 128GB",
+                    "Warna Biru - RAM 8GB/Internal 256GB"
+                ],
+                "comments": []
+            }
         ],
-        "comments": []
-      },
-      {
-        "id": 10,
-        "image_path": "./views/res/images/produc/10.jpg",
-        "name": "Smartphone Android Terbaru",
-        "stock": 50,
-        "description": "Smartphone dengan layar Full HD+, RAM 8GB, kamera 64MP, dan baterai 5000mAh. Cocok untuk pengguna yang menginginkan performa terbaik.",
-        "price": 6000000,
-        "discount": 15,
-        "category": "Elektronik",
-        "variation": [
-          "Warna Hitam - RAM 8GB/Internal 128GB",
-          "Warna Biru - RAM 8GB/Internal 256GB"
-        ],
-        "comments": []
-      }
-    ],
-    "order": []
-  }
+        "order": [
+            {
+                "product_id": 1,
+                "image_path": "./views/res/images/produc/1.jpg",
+                "name": "Kemeja Flanel Pria",
+                "description": "Kemeja flanel lengan panjang dengan bahan katun yang nyaman dipakai. Cocok untuk gaya kasual ataupun semi formal.",
+                "price": 134800,
+                "quantity": 1
+            },
+            {
+                "product_id": 5,
+                "image_path": "./views/res/images/produc/5.jpg",
+                "name": "Jaket Bomber Pria",
+                "description": "Jaket bomber berbahan parasut yang tahan angin. Cocok untuk gaya sporty ataupun casual.",
+                "price": 391611,
+                "quantity": 1
+            }
+        ]
+    }
 ]
