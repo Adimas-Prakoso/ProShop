@@ -908,3 +908,38 @@ def copy_and_rename_image(file_path, user_id):
     shutil.copy(file_path, new_file_path)
 
     return new_file_path
+
+def get_user_chart(user_id):
+    try:
+        # Read existing user data from file
+        with open('./database/user/users.json', 'r') as file:
+            users = json.load(file)
+
+        # Get the user's cart
+        for user in users:
+            if user['user_id'] == user_id:
+                return user['charts']
+    except Exception as e:
+        logging.error(f"Error occurred: {str(e)}")
+
+def remove_from_cart(user_id, product_id):
+    try:
+        # Read existing user data from file
+        with open('./database/user/users.json', 'r') as file:
+            users = json.load(file)
+
+        # Remove the product from the user's cart
+        for user in users:
+            if user['user_id'] == user_id:
+                for product in user['charts']:
+                    if product['id'] == product_id:
+                        user['charts'].remove(product)
+
+        # Save changes to file
+        with open('./database/user/users.json', 'w') as file:
+            json.dump(users, file, indent=4)
+
+        return {'status': True, 'message': 'Item removed from cart successfully'}
+    except Exception as e:
+        logging.error(f"Error occurred: {str(e)}")
+        return {'status': False, 'message': 'Failed to remove item from cart'}

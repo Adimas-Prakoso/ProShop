@@ -1659,6 +1659,8 @@ class BuyItem(QMainWindow):
             console.log("Order placed successfully!")
             self.close()
 
+# class UserCharts(QMainWindow):
+
 if __name__ == "__main__":
     app = QApplication([])
     window = UsrLoginWindow()
